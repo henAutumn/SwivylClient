@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <h4>WHAT ARE YOUR CURRENT VEHICLES?</h4>
+  </div>
+  <div class='row justify-content-center' *ngIf='this.added'>
+    <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+  </div>
+<div class="fleet container">
+  <div class="row justify-content-center">
+    
+  </div>
+  <form (submit)="fleetCreate($event)">
+    <div class="form-row">
+      <div class="col">
+        <label for="Year">Year</label>
+        <div class="card">
+
+          <input placeholder="Year" class="form-control" type="number" min="2000">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Make">Make</label>
+        <div class="card">
+          <input placeholder="Make" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Model">Model</label>
+        <div class="card">
+          <input placeholder="Model" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="VIN">VIN#</label>
+        <div class="card">
+          <input placeholder="Vin#" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="Driver">Driver</label>
+        <div class="card">
+          <input placeholder="Driver" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="ZIP">Garaging Zip</label>
+        <div class="card">
+          <input placeholder="Garaging Zip" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Date">Date Added</label>
+        <div class="card">
+          <input id="date" class="form-control" type="date">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Title">Titled To</label>
+        <div class="card">
+          <input placeholder="Titled To" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <select required name="entitySelect" (change)="pullCompanyEntities($event)" id="" placeholder="Select Company">
+          <option value="" disabled selected>Select a company</option>
+          <option *ngFor="let company of companies" value={{company.id}} >
+            
+              {{company.name}}
+            
+          </option>
+        </select>
+      </div>
+      <div class="col">
+          <select required name="entitySelect" id="">
+              <option value="" disabled selected>Select an Entity</option>
+            <option *ngFor="let entity of entities" value={{entity.id}}>            
+                {{entity.entity_name}}
+            </option>
+          </select>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+    <button type="submit" class="btn btn-dark">Add Vehicle</button>
+    </div>
+
+
+  </form>
+
+</div>
+<!-- File upload for CSV, not for MVP -->
+<!-- <form action="">
+  <input class="" type="file"/>
+  <button  class="btn btn-dark" type="submit" >Upload</button>
+</form> -->
+
+
+<!-- end of cars -->
+<div class="row justify-content-end">
+  <a routerLink="../company-shareholder" style="color:#a5c856; margin-top: 2%; margin-right: 2%;">Next</a>
+</div>
