@@ -12,6 +12,7 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 // import { KittensService } from './kittens.service';
 
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -102,7 +103,9 @@ import { ContactComponent } from './views/contact/contact.component';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
+
     // KittensService
+
 
   ],
   bootstrap: [AppComponent]

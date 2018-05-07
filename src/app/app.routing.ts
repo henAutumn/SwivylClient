@@ -49,6 +49,8 @@ export const routes: Routes = [
         path: 'contact-agent',
         component: ContactComponent
       },
+
+
     ]
   },
 ];
