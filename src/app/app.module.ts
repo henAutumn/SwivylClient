@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
-// import { KittenService } from './kitten.service';
+// import { KittensService } from './kittens.service';
+
 
 // Import containers
 import {
@@ -102,7 +103,10 @@ import { ContactComponent } from './views/contact/contact.component';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    // KittenService
+
+    // KittensService
+
+
   ],
   bootstrap: [AppComponent]
 })
