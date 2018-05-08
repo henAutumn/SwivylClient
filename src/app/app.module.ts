@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
+import { LoginService } from './Services/login.service'
+
 
 
 // Import containers
@@ -70,9 +72,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './Services/login.service';
-// import { KittensComponent } from './kittens/kittens.component';
-// import { KittenService } from './kitten.service';
 
 
 @NgModule({
@@ -97,7 +96,6 @@ import { LoginService } from './Services/login.service';
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
-    // KittensComponent
 
 
   ],
@@ -106,8 +104,10 @@ import { LoginService } from './Services/login.service';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    // KittenService
+
+
     LoginService
+
 
   ],
   bootstrap: [AppComponent]
