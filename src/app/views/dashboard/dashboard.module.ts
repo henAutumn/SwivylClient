@@ -9,7 +9,10 @@ import { SlicePipe } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { AccManagementComponent } from '../../components/acc-management/acc-management.component';
-import {AccManagementService} from '../../Services/acc-management.service'
+import { ClientOverviewComponent } from '../../components/client-overview/client-overview.component';
+import {AccManagementService} from '../../Services/acc-management.service';
+import { ClientServicesComponent } from '../../components/client-services/client-services.component';
+
 
 @NgModule({
   imports: [
@@ -21,7 +24,8 @@ import {AccManagementService} from '../../Services/acc-management.service'
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, AccManagementComponent],
+  declarations: [ DashboardComponent, AccManagementComponent, 
+  ClientOverviewComponent, ClientServicesComponent],
   providers: [
     NgbActiveModal
   ]
