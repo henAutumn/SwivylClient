@@ -20,49 +20,61 @@
     background-size: $navbar-brand-logo-size;
     @include borders($navbar-brand-border);
   }
-
+  
   .navbar-toggler {
     min-width: 50px;
     padding: $navbar-toggler-padding-y 0;
-
+    
     &:hover .navbar-toggler-icon {
       background-image: $navbar-toggler-icon-hover;
     }
   }
-
+  
   .navbar-toggler-icon {
     height: 23px;
     background-image: $navbar-toggler-icon;
   }
-
+  
   .navbar-nav {
     flex-direction: row;
     align-items: center;
   }
-
+  
   .headerUser {
-    margin: 0.8rem 3rem 0 0;
+    margin: 0.0rem 3rem 0 0;
     font-size: 14px;
   }
   
+  .search { position: relative; }
+  .search input { text-indent: 20px;}
+  .search .fa-search { 
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    font-size: 15px;
+}
 
+  .form-control {
+    border-radius: 20px;
+  }
+  
   .nav-item {
     position: relative;
     min-width: 50px;
     margin: 0 !important;
     text-align: center;
-
-
+    
+    
     button {
       margin: 0 auto;
     }
-
+    
     .nav-link {
       padding-top: 0;
       padding-bottom: 0;
       background: 0;
       border: 0;
-
+      
       .badge {
         position: absolute;
         top: 50%;
@@ -70,19 +82,19 @@
         margin-top: -16px;
         margin-left: 0;
       }
-
+      
       > .img-avatar {
         height: $navbar-height - 20px;
         margin: 0 10px;
       }
     }
   }
-
+  
   .dropdown-menu {
     padding-bottom: 0;
     line-height: $line-height-base;
   }
-
+  
   .dropdown-item {
     min-width: 180px;
   }
@@ -90,7 +102,7 @@
 
 .navbar-brand {
   color: $navbar-active-color;
-
+  
   @include hover-focus {
     color: $navbar-active-color;
   }
@@ -99,12 +111,12 @@
 .navbar-nav {
   .nav-link {
     color: $navbar-color;
-
+    
     @include hover-focus {
       color: $navbar-hover-color;
     }
   }
-
+  
   .open > .nav-link,
   .active > .nav-link,
   .nav-link.open,
