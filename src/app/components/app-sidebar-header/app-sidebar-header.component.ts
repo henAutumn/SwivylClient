@@ -17,4 +17,7 @@ export class AppSidebarHeaderComponent {
 
     
   }
+  displayName(){
+    let name = localStorage.getItem('name'); 
+  }
  }
