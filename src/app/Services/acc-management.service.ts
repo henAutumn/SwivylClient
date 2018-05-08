@@ -18,6 +18,15 @@ const createUser = gql`
 @Injectable()
 export class AccManagementService {
 
-  constructor() { }
-
+  constructor(private apollo: Apollo){} 
+createUser(email, password, name){
+  return this.apollo.mutate({
+    mutation: createUser,
+    variables: {
+      email,
+      password,
+      name
+    }
+  })
+ }
 }
