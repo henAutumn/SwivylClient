@@ -51,6 +51,11 @@ export const navigation = [
     badge: {
       variant: 'danger',
       text: null
-    }
+    },
+  },
+  {
+    name: 'Notifications',
+    url: '/notification',
+    icon: 'icon-cursor'
   }
 ];

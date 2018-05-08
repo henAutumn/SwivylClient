@@ -11,7 +11,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardToDoComponent } from './dashboard-to-do.component'
 import { DashboardSnapshotComponent } from './dashboard-snapshot.component'
 import { DashboardInsuredComponent } from './dashboard-insured.module'
-
+import { AccManagementComponent } from '../../components/acc-management/acc-management.component';
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { DashboardInsuredComponent } from './dashboard-insured.module'
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, DashboardInsuredComponent,  DashboardToDoComponent],
+  declarations: [ DashboardComponent, DashboardInsuredComponent,  DashboardToDoComponent, AccManagementComponent],
   providers: [
     NgbActiveModal
   ]
