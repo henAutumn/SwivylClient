@@ -8,10 +8,8 @@ import {CommonModule} from '@angular/common';
 import { SlicePipe } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardToDoComponent } from './dashboard-to-do.component'
-import { DashboardSnapshotComponent } from './dashboard-snapshot.component'
-import { DashboardInsuredComponent } from './dashboard-insured.module'
 import { AccManagementComponent } from '../../components/acc-management/acc-management.component';
+import {AccManagementService} from '../../Services/acc-management.service'
 
 @NgModule({
   imports: [
@@ -23,7 +21,7 @@ import { AccManagementComponent } from '../../components/acc-management/acc-mana
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, DashboardInsuredComponent,  DashboardToDoComponent, AccManagementComponent],
+  declarations: [ DashboardComponent, AccManagementComponent],
   providers: [
     NgbActiveModal
   ]
