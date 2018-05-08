@@ -107,7 +107,7 @@ import { LoginComponent } from './components/login/login.component';
       useClass: HashLocationStrategy
     },
 
-    // KittensService
+
     LoginService
 
 

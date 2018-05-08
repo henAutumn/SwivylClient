@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginService } from '../../Services/login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,35 +10,35 @@ import { LoginService } from '../../Services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _loginService: LoginService, private router: Router) { }
+  fullImagePath: String;
+
+  constructor(private _loginService: LoginService, private router: Router) {this.fullImagePath = '../../../assets/img/Swivyl_Logo_Web_Black-Blue.png' }
 
   ngOnInit() {
+
   }
+
   login(e) {
-       let login={
-        email:e.target[0].value,
-        password:e.target[1].value
-       }
-    
-    this._loginService.loginUser(login.email, login.password)
-      .subscribe((res:any) => {
-      localStorage.setItem("token",res.data.login.token);
-        if(localStorage.token){
-          this.router.navigate(['/profile'])
-        }else{
-          this.router.navigate(['/login'])
-        }
-      });
+    let loggedUser = {
+      email: e.target[0].value,
+      password: e.target[1].value
     }
-  
-
-
-
+    this._loginService.loginUser(loggedUser.email, loggedUser.password).subscribe((res: any) => {
+      localStorage.setItem('token', res.data.login.token)
+      if(localStorage.token){
+        this.router.navigate(['/profile'])
+      } else {
+        this.router.navigate(['/login'])
+      }
+    })
+  }
 }
-interface User{
-  id:String,
+
+interface User {
   name: String,
-  email:String,
-  password:String,
-  agency:object,
+  email: String,
+  password: String,
+  agency: Object,
+  id: String
 }
+
