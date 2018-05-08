@@ -13,6 +13,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { LoginService } from './Services/login.service'
 // import { KittensService } from './kittens.service';
 
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -105,7 +106,9 @@ import { LoginComponent } from './components/login/login.component';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
+
     LoginService
+
 
   ],
   bootstrap: [AppComponent]
