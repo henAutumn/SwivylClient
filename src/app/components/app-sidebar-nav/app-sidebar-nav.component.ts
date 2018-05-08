@@ -22,7 +22,7 @@ import { navigation } from './../../_nav';
     </nav>
     <nav class="btn-group logoutSupport" style="width:100%">
     <li class="supportClick"><a>Support</a></li>
-    <li><a (click)="this._authservice.logout()">Logout</a></li>
+    <li><a href="/login">Logout</a></li>
     </nav>`
   })
 export class AppSidebarNavComponent {

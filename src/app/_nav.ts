@@ -13,37 +13,37 @@ export const navigation = [
     
     
   },
-  {
-    name: 'Assets',
-    url: '/assets',
-    icon: 'icon-pencil',
+  // {
+  //   name: 'Assets',
+  //   url: '/assets',
+  //   icon: 'icon-pencil',
     
-  },
-  {
-    name: 'Policy Corner',
-    url: '/policy-corner',
-    icon: 'icon-puzzle',
+  // },
+  // {
+  //   name: 'Policy Corner',
+  //   url: '/policy-corner',
+  //   icon: 'icon-puzzle',
     
-  },
-  {
-    name: 'Open Items',
-    url: '/open-items',
-    icon: 'icon-cursor',
+  // },
+  // {
+  //   name: 'Open Items',
+  //   url: '/open-items',
+  //   icon: 'icon-cursor',
     
-  },
-  {
+  // },
+  // {
 
-    name: 'Data Exchange',
-    url: '/data-exchange',
-    icon: 'icon-cursor',
+  //   name: 'Data Exchange',
+  //   url: '/data-exchange',
+  //   icon: 'icon-cursor',
     
-  },
-  {
-    name: 'Contact Agent',
-    url: '/contact-agent',
-    icon: 'icon-bell',
+  // },
+  // {
+  //   name: 'Contact Agent',
+  //   url: '/contact-agent',
+  //   icon: 'icon-bell',
     
-  },
+  // },
   {
     name: 'Messages',
     url: '/messages',
