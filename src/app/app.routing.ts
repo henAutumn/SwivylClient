@@ -8,15 +8,17 @@ import {
 
 import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
 import { ContactComponent } from './views/contact/contact.component';
-// import { KittensComponent } from './kittens/kittens.component';
-
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
-    redirectTo: '/profile',
+    redirectTo: '/login',
     pathMatch: 'full'
-    
   },
   {
     path: '',
