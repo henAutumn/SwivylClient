@@ -10,7 +10,8 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardToDoComponent } from './dashboard-to-do.component'
 import { DashboardSnapshotComponent } from './dashboard-snapshot.component'
-import { DashboardInsuredComponent } from './dashboard-insured.module'
+import { DashboardInsuredComponent } from './dashboard-insured.module';
+import { AccManagementService } from '../../Services/acc-management.service'
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DashboardInsuredComponent } from './dashboard-insured.module'
   ],
   declarations: [ DashboardComponent, DashboardInsuredComponent,  DashboardToDoComponent],
   providers: [
-    NgbActiveModal
+    NgbActiveModal,
+    AccManagementService
   ]
 })
 export class DashboardModule { }
