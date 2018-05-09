@@ -21,12 +21,11 @@ export class AccManagementComponent implements OnInit {
     let createdUser = {
       email: e.target[0].value,
       password: e.target[1].value,
-      name: e.target[2].value
+      firstName: e.target[2].value,
+      lastName:e.target[3].value
     }
-    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.name).subscribe((res: any) => {
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName).subscribe((res: any) => {
       console.log(res)
-      
-      
     })
   }
 }

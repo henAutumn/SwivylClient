@@ -29,14 +29,17 @@
           <div class="modal-body">
             <form (submit)="newUser($event)">
               <div class="form-group">
-                <Input type="email" id="email" placeholder="Enter User Email">
+                <Input type="email" required id="email" placeholder="Enter User Email">
               </div>
               <div class="form-group">
-                <Input type="text" id="password" placeholder="Enter User Password">
+                <Input type="text" required id="password" placeholder="Enter User Password">
               </div>
               <div class="form-group">
-                <Input type="text" id="name" placeholder="Enter User Name">
+                <Input type="text" required id="firstName" placeholder="Enter User First Name">
               </div>
+              <div class="form-group">
+                  <Input type="text" required id="lastName" placeholder="Enter User Last Name">
+                </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Create User</button>
               </div>
