@@ -15,7 +15,7 @@
       <a>Pending Broker/CSR Users</a>
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add team member</button>
-    
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -27,11 +27,16 @@
             </button>
           </div>
           <div class="modal-body">
-            <form onSubmit={this.handleSubmit} >
-                  <Input placeholder="Enter User Email" />
-                <Input placeholder="Enter User Password" />
-            
-              <Input placeholder="Enter User Name" />
+            <form onSubmit={this.handleSubmit}>
+              <div class="form-group">
+                <Input placeholder="Enter User Email">
+              </div>
+              <div class="form-group">
+                <Input placeholder="Enter User Password">
+              </div>
+              <div class="form-group">
+                <Input placeholder="Enter User Name">
+              </div>
             </form>
           </div>
           <div class="modal-footer">
