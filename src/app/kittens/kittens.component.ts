@@ -1,69 +1,70 @@
-import { Component, OnInit } from '@angular/core';
-import { KittenService } from '../kitten.service';
 
-@Component({
-  selector: 'app-kittens',
-  templateUrl: './kittens.component.html',
-  styleUrls: ['./kittens.component.scss']
-})
-export class KittensComponent implements OnInit {
-  kittens: Kitten[];
-  constructor(private _kittenService: KittenService) { }
+// import { Component, OnInit } from '@angular/core';
+// import { KittensService } from '../kittens.service';
 
-  ngOnInit() {
-    this.getKittens()
-    this.newKitten()
-    this.updatedKitten()
-    this.deletedKitten()
-  }
-  getKittens(){
-    this._kittenService.getAllKittens().subscribe((kittenResult:any)=>{
-      console.log(kittenResult);
-      
-    })
+// @Component({
+//   selector: 'app-kittens',
+//   templateUrl: './kittens.component.html',
+//   styleUrls: ['./kittens.component.scss']
+// })
+// export class KittensComponent implements OnInit {
 
-  }
-  newKitten(){
-    let name= "Grizzabella"
-    let color= "white"
-    let fat =  true
-    let fierce = true
+//   kittens: Kitten[];
 
-    this._kittenService.newKitten(name, color, fat, fierce).subscribe((res:any)=>{
-      console.log(res);
-      
-    })
+//   constructor(private _kittensService: KittensService) { }
 
-  }
+//   ngOnInit() {
+//     this.getKittens()
+//     this.newKitten()
+//     this.updatedKitten()
+//     this.deletedKitten()
+//   }
 
-  updatedKitten(){
-    let id = "cjgryzln10q860b061lgpt6i0"
-    let name = "Griz"
-    let color = "white"
-    let fat = true
-    let fierce = true
+//   getKittens(){
+//     this._kittensService.getAllKittens().subscribe((kittenResult: any) => {
+//       console.log(kittenResult);
+//     })
+//   }
   
-    this._kittenService.updatedKitten(id, name, color, fat, fierce).subscribe((res: any)=>{
-      console.log(res);
-      
-    })
-  }
+//   newKitten(){
+//     let name="Nova"
+//     let color="brown"
+//     let fat=false
+//     let fierce=false
 
-  deletedKitten(){
-    let id = "cjgryzln10q860b061lgpt6i0"
-    this._kittenService.deletedKitten(id).subscribe((res: any)=>{
-      console.log(res);
-      
-    })
-  }
-}
+//     this._kittensService.newKitten(name, color, fat, fierce).subscribe((res:any) => {
+//       console.log(res)
+//     })
+//   }
 
+//   updatedKitten(){
+//     let id="cjgqz49gmu7qh0b06jezpy34j"
+//     let name="CatDad"
+//     let color="black"
+//     let fat=false
+//     let fierce=false
 
-interface Kitten{
-  name: String,
-  color: String,
-  fat: boolean,
-  fierce: boolean,
-  owner: Object,
-  id: String
-}
+//     this._kittensService.updatedKitten(id, name, color, fat, fierce).subscribe((res:any) => {
+//       console.log(res)
+//     })
+//   }
+
+//   deletedKitten(){
+//     let id="cjgqzvhptufcb0b06ujhskn00"
+
+//     this._kittensService.deletedKitten(id).subscribe((res:any) => {
+//       console.log(res);
+//     })
+//   }
+
+// }
+
+// interface Kitten{
+//   name: String,
+//   color: String,
+//   fat: Boolean,
+//   fierce: Boolean
+//   owner: Object
+//   id: String
+// }
+

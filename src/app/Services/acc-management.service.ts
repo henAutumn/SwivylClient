@@ -3,8 +3,8 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const createUser = gql`
-  mutation createUser($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation createUser($email: String!, $password: String!, $name:String!) {
+    createUser(email: $email, password: $password, name:$name) {
     user {
       name
       id
@@ -18,15 +18,18 @@ const createUser = gql`
 @Injectable()
 export class AccManagementService {
 
-  constructor(private apollo: Apollo){} 
-createUser(email, password, name){
-  return this.apollo.mutate({
-    mutation: createUser,
-    variables: {
-      email,
-      password,
-      name
-    }
-  })
- }
+
+  constructor(private apollo: Apollo) { }
+
+  createUser(email, password, name) {
+
+    return this.apollo.mutate({
+      mutation: createUser,
+      variables:{
+        email,
+        password,
+        name
+      }
+    })
+  }
 }
