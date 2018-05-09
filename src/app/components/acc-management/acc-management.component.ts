@@ -10,16 +10,16 @@ export class AccManagementComponent implements OnInit {
   constructor(private _accManagementService: AccManagementService) { }
 
   ngOnInit() {
-    this.newUser()
+    // this.newUser()
   }
 
-  newUser(){
-    let email = "hey@gmail.com"
-    let password = "hey123*"
-    let name = "Trace"
-    this._accManagementService.createUser(email, password, name).subscribe((userResult: any)=>{
-      console.log(userResult);
+  // newUser(){
+  //   let email = "hey@gmail.com"
+  //   let password = "hey123*"
+  //   let name = "Trace"
+  //   this._accManagementService.createUser(email, password, name).subscribe((userResult: any)=>{
+  //     console.log(userResult);
       
-    })
-  }
+  //   })
+  // }
 }
