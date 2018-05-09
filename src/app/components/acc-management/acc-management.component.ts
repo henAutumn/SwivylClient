@@ -24,7 +24,7 @@ export class AccManagementComponent implements OnInit {
       name: e.target[2].value
     }
     this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.name).subscribe((res: any) => {
-      localStorage.setItem('token', res.data.login.token)
+      console.log(res)
       
       
     })
