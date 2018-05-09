@@ -1,19 +1,35 @@
 <div class="card activity-timeline dashboard-card">
   <div class="card-header to-do-header dashboard-header">
-    Client Overview
+    <div id="title">Client Overview</div>
     <hr />
-    <div>
-      <a>Client Stuff</a>
-    </div>
-    <div>
-      <a>Other Stuff</a>
-    </div>
-    <div>
-      <a>Stuffy Stuff</a>
-    </div>
-    <div>
-      <a>Broke Stuff</a>
-    </div>
-    <button>+ Add Client</button>
+    <!-- <p><button onclick="sortTable()">Sort</button></p> -->
+    <table id="table" class="table-sm table-striped" style="width: 100%">
+      <thead id="tableHeader">
+        <tr>
+          <th>Industry</th>
+          <th>Count</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Contractors</td>
+          <td style="color: dodgerblue">38</td>
+          <td style="color: dodgerblue">$2,850,000</td>
+        </tr>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Transportations</td>
+          <td style="color: dodgerblue">15</td>
+          <td style="color: dodgerblue">$950,000</td>
+        </tr>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Municipality</td>
+          <td style="color: dodgerblue">7</td>
+          <td style="color: dodgerblue">$800,000</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <a href="" id="anchor">View Clients</a>
 </div>
+
