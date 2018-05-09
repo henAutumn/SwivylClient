@@ -27,7 +27,8 @@ import { ClientServicesComponent } from '../../components/client-services/client
   declarations: [ DashboardComponent, AccManagementComponent, 
   ClientOverviewComponent, ClientServicesComponent],
   providers: [
-    NgbActiveModal
+    NgbActiveModal,
+    AccManagementService
   ]
 })
 export class DashboardModule { }
