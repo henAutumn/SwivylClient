@@ -1,20 +1,30 @@
 <div class="card activity-timeline dashboard-card">
   <div class="card-header to-do-header dashboard-header">
-    Account Management
+    <div id="title">Account Management</div>
     <hr />
-    <div>
-      <a>Max Users</a>
-    </div>
-    <div>
-      <a>Active Broker User</a>
-    </div>
-    <div>
-      <a>Active Support Users</a>
-    </div>
-    <div>
-      <a>Pending Broker/CSR Users</a>
-    </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add team member</button>
+
+    <table id="table" class="table-sm table-striped" style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Max Users</td>
+          <span class="badge badge-primary">10 Available</span>
+        </tr>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Active Broker User</td>
+          <span class="badge badge-light">0 Pending</span>
+        </tr>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Active Support Users</td>
+          <span class="badge badge-success">3 New Users</span>
+        </tr>
+        <tr>
+          <td style="color: rgb(65, 63, 63)">Pending Broker/CSR Users</td>
+          <span class="badge badge-warning">1 Pending</span>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="anchorView" data-toggle="modal" data-target="#exampleModal">+ Add team member</div>
 
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,6 +38,7 @@
           </div>
           <div class="modal-body">
             <form (submit)="newUser($event)">
+<<<<<<< HEAD
               <div class="form-group">
                 <Input type="email" required id="email" placeholder="Enter User Email">
               </div>
@@ -36,6 +47,19 @@
               </div>
               <div class="form-group">
                 <Input type="text" required id="firstName" placeholder="Enter User First Name">
+=======
+              <div class="form-group" id="mail">
+                <span class="fas fa-envelope"></span>
+                <Input type="email" id="email" placeholder="Enter user email">
+              </div>
+              <div class="form-group" id="pass">
+                <span class="fas fa-key"></span>
+                <Input type="text" id="password" placeholder="Enter user password">
+              </div>
+              <div class="form-group" id="user">
+                <span class="fas fa-user"></span>
+                <Input type="text" id="name" placeholder="Enter user name">
+>>>>>>> cc35c47518adb709b9c61e1b1c8f670182e23f3e
               </div>
               <div class="form-group">
                   <Input type="text" required id="lastName" placeholder="Enter User Last Name">

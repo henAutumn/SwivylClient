@@ -2,23 +2,24 @@
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     color: gray;
+    font-size: 14px;
 }
-#icon{
-    position: absolute;
-    right: 10px;
-    top: 8px;
-    padding: 5px;
+#titleList{
+    color: rgb(109, 160, 76);
+    margin: 2px;
 }
-#card{
-    font-weight: bold;
+th{
     color: rgb(65, 63, 63)
 }
-
-#anchorView{
+tr{
+    font-weight: bold;
+}
+#anchor{
     position: absolute;
     color: rgb(109, 160, 76);
     font-weight: bold; 
-    bottom: 0px;
-    right: 10px; 
-    padding: 8px;
+    right: 16px; 
 }   
+#Card{
+    font-size: 12px;
+}
