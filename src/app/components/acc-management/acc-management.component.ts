@@ -15,18 +15,19 @@ export class AccManagementComponent implements OnInit {
     private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
-this.newUser();
   }
 
-  newUser(){
-    let email="you@you.com"
-    let password="hey"
-    let name="Autumn"
-    this._accmanagementservice.createUser(email, password, name).subscribe((res:any)=>{
-      console.log(res)
+  newUser(e) {
+    let createdUser = {
+      email: e.target[0].value,
+      password: e.target[1].value,
+      name: e.target[2].value
+    }
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.name).subscribe((res: any) => {
+      localStorage.setItem('token', res.data.login.token)
+      
+      
     })
   }
-
-  
-
 }
+
