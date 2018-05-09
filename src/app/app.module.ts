@@ -96,8 +96,6 @@ import { LoginComponent } from './components/login/login.component';
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
-
-
   ],
   providers: [
     {

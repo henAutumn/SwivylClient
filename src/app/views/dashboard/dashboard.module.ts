@@ -12,7 +12,9 @@ import { AccManagementComponent } from '../../components/acc-management/acc-mana
 import { ClientOverviewComponent } from '../../components/client-overview/client-overview.component';
 import {AccManagementService} from '../../Services/acc-management.service';
 import { ClientServicesComponent } from '../../components/client-services/client-services.component';
-
+import { ApplicationLibraryComponent } from'../../components/application-library/application-library.component';
+import { PolicyAdjustComponent } from '../../components/policy-adjust/policy-adjust.component';
+import { QuickConnectComponent } from '../../components/quick-connect/quick-connect.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,7 @@ import { ClientServicesComponent } from '../../components/client-services/client
     NgbModule.forRoot()
   ],
   declarations: [ DashboardComponent, AccManagementComponent, 
-  ClientOverviewComponent, ClientServicesComponent],
+  ClientOverviewComponent, ClientServicesComponent, ApplicationLibraryComponent, PolicyAdjustComponent, QuickConnectComponent],
   providers: [
     NgbActiveModal,
     AccManagementService
