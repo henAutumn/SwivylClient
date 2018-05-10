@@ -21,7 +21,6 @@ export class LoginService {
   constructor(private apollo: Apollo) { }
 
   loginUser(email, password) {
-
     return this.apollo.mutate({
       mutation: login,
       variables:{
