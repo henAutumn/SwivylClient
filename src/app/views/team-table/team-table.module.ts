@@ -8,6 +8,8 @@ import {CommonModule} from '@angular/common';
 import { SlicePipe } from '@angular/common';
 import { TeamTableComponent } from './team-table.component';
 import { TeamTableRoutingModule } from './teamtable-routing.module';
+import {AccManagementService} from '../../Services/acc-management.service';
+
 
 @NgModule({
   imports: [
@@ -23,7 +25,8 @@ import { TeamTableRoutingModule } from './teamtable-routing.module';
     TeamTableComponent
 ],
   providers: [
-    NgbActiveModal
+    NgbActiveModal,
+    AccManagementService
   ]
 })
 export class TeamTableModule { }

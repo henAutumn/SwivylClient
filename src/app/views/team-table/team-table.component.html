@@ -12,14 +12,9 @@
                 </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Trace Jameson</td>
-              <td>jamoRules@gmail.com</td>
-              <td>Broker</td>
-            </tr>
-            <tr>
-              <td>Mark Thomas</td>
-              <td>MarkRules@gmail.com</td>
+            <tr *ngFor="let user of users">
+              <td>{{user.firstName}} {{user.lastName}}</td>
+              <td>{{user.email}}</td>
               <td>Broker</td>
             </tr>
           </tbody>
