@@ -26,8 +26,15 @@ import { QuickConnectComponent } from '../../components/quick-connect/quick-conn
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, AccManagementComponent, 
-  ClientOverviewComponent, ClientServicesComponent, ApplicationLibraryComponent, PolicyAdjustComponent, QuickConnectComponent],
+  declarations: [ 
+    DashboardComponent, 
+    AccManagementComponent, 
+    ClientOverviewComponent, 
+    ClientServicesComponent, 
+    ApplicationLibraryComponent, 
+    PolicyAdjustComponent, 
+    QuickConnectComponent
+  ],
   providers: [
     NgbActiveModal,
     AccManagementService
