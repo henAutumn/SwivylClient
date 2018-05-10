@@ -7,6 +7,8 @@
 #titleList{
     color: rgb(109, 160, 76);
     margin: 2px;
+    margin-top: -.5em;
+    
 }
 th{
     color: rgb(65, 63, 63)
@@ -19,7 +21,12 @@ tr{
     color: rgb(109, 160, 76);
     font-weight: bold; 
     right: 16px; 
+    padding-bottom: 20px;
 }   
 #Card{
     font-size: 12px;
+}
+
+hr {
+    margin-top: 1.8em;
 }
