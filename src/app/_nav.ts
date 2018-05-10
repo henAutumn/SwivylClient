@@ -10,8 +10,16 @@ export const navigation = [
     name: 'Profile',
     url: '/profile/company-welcome',
     icon: 'icon-drop',
-    
-    
+  },
+  {
+    name: 'Team-Table',
+    url: '/team-table',
+    icon: 'icon-user'
+  },
+  {
+    name: 'Clients',
+    url: '/clients',
+    icon: 'icon-user'
   },
   // {
   //   name: 'Assets',

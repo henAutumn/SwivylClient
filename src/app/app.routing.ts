@@ -40,6 +40,14 @@ export const routes: Routes = [
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
       {
+        path: 'clients',
+        loadChildren: './views/clients/clients.module#ClientsModule'
+      },
+      {
+        path: 'team-table',
+        loadChildren: './views/team-table/team-table.module#TeamTableModule'
+      },
+      {
         path: 'assets',
         loadChildren: './views/assets/assets.module#AssetsModule'
       },
