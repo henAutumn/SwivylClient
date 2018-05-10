@@ -12,9 +12,19 @@ const createUser = gql`
     }
     token
   }
-}
+}`;
 
-`;
+const getUsers = gql`
+  query users{
+    users{
+      id
+      email
+      password
+      firstName
+      lastName
+    }
+  }
+` ;
 
 @Injectable()
 export class AccManagementService {
@@ -22,8 +32,11 @@ export class AccManagementService {
 
   constructor(private apollo: Apollo) { }
 
-  createUser(email, password, firstName, lastName) {
+  getUsers(){
+    return this.apollo.query({query:getUsers})
+  };
 
+  createUser(email, password, firstName, lastName) {
     return this.apollo.mutate({
       mutation: createUser,
       variables:{

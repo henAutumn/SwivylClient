@@ -8,14 +8,21 @@ import { AccManagementService } from '../../Services/acc-management.service';
   
 })
 export class AccManagementComponent implements OnInit {
-
+  userCount=0
   constructor(
     private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
     // this.newUser()
+    this.getAllUsers();
   }
 
+  getAllUsers=()=>{
+    this._accmanagementservice.getUsers().subscribe(
+      (res:any)=>{
+         this.userCount = res.data.users.length;
+      })
+  }
 
   newUser(e) {
     let createdUser = {
@@ -24,9 +31,9 @@ export class AccManagementComponent implements OnInit {
       firstName: e.target[2].value,
       lastName:e.target[3].value
     }
-    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName).subscribe((res: any) => {
-      console.log(res)
-    })
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName).subscribe(
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
 }
 
