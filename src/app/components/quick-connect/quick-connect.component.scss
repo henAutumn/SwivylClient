@@ -1,16 +1,18 @@
 #title{
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
-    color: gray;
+    color: grey;
 }
 select{
-    background-color: rgb(212, 208, 208);
+    background-color: #f0f3f5;
     border-radius: 3px;
 }
 textarea{
-    background-color: rgb(212, 208, 208);
+    background-color: #f0f3f5;
     text-align: left;
 }
 button{
     border-radius: 3px;
+    margin: 0 auto;
+    display: block;
 }
