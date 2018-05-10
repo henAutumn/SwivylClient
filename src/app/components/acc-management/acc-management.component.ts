@@ -19,9 +19,9 @@ export class AccManagementComponent implements OnInit {
 
   newUser(e) {
     let createdUser = {
-      email: e.target[0].value,
-      password: e.target[1].value,
-      name: e.target[2].value
+    email: e.target[0].value,
+    password: e.target[1].value,
+    name: e.target[2].value
     }
     this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.name).subscribe((res: any) => {
       console.log(res)
