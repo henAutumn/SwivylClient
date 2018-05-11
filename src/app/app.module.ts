@@ -72,6 +72,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGaurd } from './guards/auth.guard';
 
 
 @NgModule({
@@ -106,7 +107,8 @@ import { LoginComponent } from './components/login/login.component';
 
 
     LoginService,
-    UploadImageService
+    UploadImageService,
+    AuthGaurd
 
 
   ],
