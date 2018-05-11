@@ -23,8 +23,16 @@ const getUsers = gql`
       firstName
       lastName
     }
-  }
-` ;
+  }`;
+
+  // const subscribeUsers=gql `
+  //   subscription userSubscription{
+  //     node{
+  //       firstName
+  //       lastName
+  //       email
+  //     }
+  //   }`;
 
 @Injectable()
 export class AccManagementService {
@@ -33,8 +41,12 @@ export class AccManagementService {
   constructor(private apollo: Apollo) { }
 
   getUsers(){
-    return this.apollo.query({query:getUsers})
+    return this.apollo.query({query:getUsers, fetchPolicy:'network-only'})
   };
+
+  // subcribeUsers(){
+  //   return this.apollo.subscription()
+  // }
 
   createUser(email, password, firstName, lastName) {
     return this.apollo.mutate({

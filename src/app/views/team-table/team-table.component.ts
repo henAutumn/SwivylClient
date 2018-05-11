@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
+import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: 'team-table.component.html',
@@ -11,7 +12,8 @@ export class TeamTableComponent implements OnInit {
   constructor( private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
-    this.getAllUsers()
+    this.getAllUsers();
+    // this.addNewUsers();
   }
 
   getAllUsers=()=>{
@@ -20,6 +22,15 @@ export class TeamTableComponent implements OnInit {
         this.users= res.data.users
       })
   }
+
+  // addNewUsers=()=>{
+  //   this._accmanagementservice.subcribeUsers().subscribe(
+  //     (res:any)=>{
+  //       console.log(res)o
+  //     }
+  //   )
+  // }
+
   sortTable(n){
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("teamTable");
