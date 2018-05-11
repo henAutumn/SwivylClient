@@ -20,6 +20,17 @@ export class TeamTableComponent implements OnInit {
         this.users= res.data.users
       })
   }
+  newUser(e) {
+    let createdUser = {
+      email: e.target[0].value,
+      password: e.target[1].value,
+      firstName: e.target[2].value,
+      lastName:e.target[3].value
+    }
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName).subscribe(
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (error:any)=>{ alert(`There is already an account associated with that email address`)})
+  }
   sortTable(n){
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("teamTable");
