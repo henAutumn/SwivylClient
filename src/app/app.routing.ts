@@ -9,6 +9,7 @@ import {
 import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGaurd } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -21,7 +22,7 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: '', canActivate: [AuthGaurd], 
     component: FullLayoutComponent,
     data: {
       title: 'Home'
