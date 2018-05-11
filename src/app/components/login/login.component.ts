@@ -26,12 +26,20 @@ export class LoginComponent implements OnInit {
     this._loginService.loginUser(loggedUser.email, loggedUser.password).subscribe((res: any) => {
       localStorage.setItem('token', res.data.login.token)
       if(localStorage.token){
-        this.router.navigate(['/profile'])
+        this.router.navigate(['/dashboard'])
       } else {
         this.router.navigate(['/login'])
       }
     })
   }
+
+  logout(e) {
+    localStorage.clear();
+      if(localStorage.token === '') {
+        this.router.navigate(['/login'])
+      }
+  }
+
 }
 
 interface User {
