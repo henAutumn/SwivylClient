@@ -1,8 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 // Import navigation elements
 import { navigation } from './../../_nav';
-
 
 @Component({
   selector: 'app-sidebar-nav', //Gonna add a logout button component
@@ -22,15 +22,19 @@ import { navigation } from './../../_nav';
     </nav>
     <nav class="btn-group logoutSupport" style="width:100%">
     <li class="supportClick"><a>Support</a></li>
-    <li><a href="/login">Logout</a></li>
+    <button type="submit" class="btn btn primary" (click)="logout($event)">Logout</button>
     </nav>`
-  })
+})
+
 export class AppSidebarNavComponent {
 
+  constructor(private router: Router) { }
+  logout(e) {
+    localStorage.clear();
+      this.router.navigate(['/login'])
+    }
+
   public navigation = navigation;
-
-
-
 
   public isDivider(item) {
     return item.divider ? true : false
@@ -40,10 +44,7 @@ export class AppSidebarNavComponent {
     return item.title ? true : false
   }
 
-  constructor() { }
 }
-
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-nav-item',
@@ -80,7 +81,7 @@ export class AppSidebarNavItemComponent {
     return this.router.isActive(this.thisUrl(), false)
   }
 
-  constructor( private router: Router )  { }
+  constructor(private router: Router) { }
 
 }
 
@@ -178,12 +179,12 @@ export class AppSidebarNavTitleComponent implements OnInit {
 
     this.renderer.addClass(li, 'nav-title');
 
-    if ( this.title.class ) {
+    if (this.title.class) {
       const classes = this.title.class;
       this.renderer.addClass(li, classes);
     }
 
-    if ( this.title.wrapper ) {
+    if (this.title.wrapper) {
       const wrapper = this.renderer.createElement(this.title.wrapper.element);
 
       this.renderer.appendChild(wrapper, name);
