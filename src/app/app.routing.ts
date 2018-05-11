@@ -8,17 +8,21 @@ import {
 
 import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
 import { ContactComponent } from './views/contact/contact.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { AuthGaurd } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/profile',
-    pathMatch: 'full'
-    
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: '', canActivate: [AuthGaurd], 
     component: FullLayoutComponent,
     data: {
       title: 'Home'
@@ -37,6 +41,14 @@ export const routes: Routes = [
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
       {
+        path: 'clients',
+        loadChildren: './views/clients/clients.module#ClientsModule'
+      },
+      {
+        path: 'team-table',
+        loadChildren: './views/team-table/team-table.module#TeamTableModule'
+      },
+      {
         path: 'assets',
         loadChildren: './views/assets/assets.module#AssetsModule'
       },
@@ -47,7 +59,11 @@ export const routes: Routes = [
       {
         path: 'contact-agent',
         component: ContactComponent
-      }
+      },
+      // {
+      //   path: 'kittens',
+      //   component: KittensComponent
+      // }
     ]
   },
 ];

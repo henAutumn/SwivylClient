@@ -1,0 +1,86 @@
+#buttonAdd{
+    float: right;
+    border-radius: 5px;
+    font-family: 'PT Sans', sans-serif;
+}
+#buttontr{
+    font-family: 'PT Sans', sans-serif;
+    background: none;
+    color: inherit;
+    border: none;
+    outline: inherit;
+}
+th{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+#user-name, #user-expiration, #user-broker, #user-premium, #user-industry, #user-policy {
+    width: 33.5em; 
+    margin: 0 auto;
+}
+
+#name { position: relative; }
+#name input { text-indent: 25px;}
+#name .fa-user { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#expiration { position: relative; }
+#expiration input { text-indent: 25px;}
+#expiration .fa-hourglass { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#broker { position: relative; }
+#broker input { text-indent: 25px;}
+#broker .fa-id-badge { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#premium { position: relative; }
+#premium input { text-indent: 25px;}
+#premium .fa-user-shield { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#industry { position: relative; }
+#industry input { text-indent: 25px;}
+#industry .fa-building { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#policy { position: relative; }
+#policy input { text-indent: 25px;}
+#policy .fa-folder-open { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+.modal-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.btn-primary{
+    margin-bottom: -1.6em;
+    border-radius: 10px;
+}

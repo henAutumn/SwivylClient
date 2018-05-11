@@ -2,22 +2,23 @@
 
 
   <div class="companyHeaderTag">
-    <img (click)="ImageSubmitClick()" style="border-radius: 10rem;" class="companyLogo" src="{{companyImage}}" alt="user company">
-
+    <img (click)="imageSubmitClick()" style="border-radius: 10rem;" class="companyLogo" src="{{companyImage}}" alt="user company">
     <div style="height: 0px; overflow:hidden">
       <!-- upload an image -->
       <form action="">
-        <input multiple  (change)="ImageSubmit($event)" type="file" id="ImageSelect" ngf-select ngf-max-size="25MB">
+        <input multiple (change)="imageSubmit($event)" type="file" id="imageSelect" ngf-select ngf-max-size="25MB">
       </form>
     </div>
   </div>
-
+  
   <div class="companyHeaderTag user-names">
     <p class="userFirst">{{firstName}}</p>
     <p class="userLast">{{lastName}}</p>
   </div>
-
-
+  
+  
 </div>
 <!-- <p class="userFirst">FirstName</p>
-    <p class="userLast">LastName</p> -->
+  <p class="userLast">LastName</p> -->
+  
+  <!-- <button type="button" (click)="onUpload()">Upload Image</button> -->

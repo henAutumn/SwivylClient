@@ -1,0 +1,123 @@
+<button id="buttonAdd" type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">Add Client
+</button>
+<br>
+<br>
+<br>
+<div class="card activity-timeline dashboard-card">
+
+  <div class="card-header to-do-header dashboard-header">
+    <table id="teamTable" class="table table-striped" style="width: 100%">
+      <thead>
+        <tr>
+          <th>NAME
+            <button id="buttontr" (click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+          <th>EXPIRATION
+            <button id="buttontr" (click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+          <th>BROKER
+            <button id="buttontr"(click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+          <th>PREMIUM
+            <button id="buttontr"(click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+          <th>INDUSTRY
+            <button id="buttontr"(click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+          <th>POLICIES
+            <button id="buttontr"(click)=sortTable(0)>
+              <i class="fas fa-sort"></i>
+            </button>
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Trace Jameson</td>
+          <td>04-07-2018</td>
+          <td>Joe Shimo</td>
+          <td>$268,000</td>
+          <td>Plumbing</td>
+          <td>Property, GL</td>
+        </tr>
+        <tr>
+          <td>Mark Thomas</td>
+          <td>12-05-2018</td>
+          <td>Matt Heff</td>
+          <td>$452,000</td>
+          <td>A/C</td>
+          <td>Property, GL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (submit)="newUser($event)">
+              <div class="form-group" id="name">
+                <span class="fas fa-user"></span>
+                <Input type="text" id="user-name" placeholder="Enter full name">
+              </div>
+              <div class="form-group" id="expiration">
+                <span class="fas fa-hourglass"></span>
+                <Input type="text" id="user-expiration" placeholder="Expiration (mm/dd/yyyy)">
+              </div>
+              <div class="form-group" id="broker">
+                <span class="fas fa-id-badge"></span>
+                <Input type="text" id="user-broker" placeholder="Enter broker">
+              </div>
+              <div class="form-group" id="premium">
+                <span class="fas fa-user-shield"></span>
+                <Input type="text" required id="user-premium" placeholder="Enter premium">
+              </div>
+              <div class="form-group" id="industry">
+                <span class="fas fa-building"></span>
+                <Input type="text" required id="user-industry" placeholder="Enter industry">
+              </div>
+              <div class="form-group" id="policy">
+                <span class="fas fa-folder-open"></span>
+                <Input type="text" required id="user-policy" placeholder="Enter policy">
+              </div>
+              <div class="form-group" id="user">
+                  <span class="fas fa-user"></span>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Title</label>
+                      </div>
+                      <select class="custom-select" id="user">
+                        <option selected>Title...</option>
+                        <option value="Broker">Broker</option>
+                        <option value="Client">Client</option>
+                      </select>
+                    </div>
+                </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Create User</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,65 @@
+#buttonAdd{
+    float: right;
+    border-radius: 5px;
+    font-family: 'PT Sans', sans-serif;
+}
+#buttonth{
+    font-family: 'PT Sans', sans-serif;
+    background: none;
+    color: inherit;
+    border: none;
+    outline: inherit;
+}
+th{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+.btn-primary{
+    margin-bottom: -1.6em;
+    border-radius: 10px;
+}
+
+#email, #password, #firstName, #lastName {
+    width: 33.5em; 
+    margin: 0 auto;
+}
+
+#pass { position: relative; }
+#pass input { text-indent: 25px;}
+#pass .fa-key { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#mail { position: relative; }
+#mail input { text-indent: 25px;}
+#mail .fa-envelope { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+#user { position: relative; }
+#user input { text-indent: 25px;}
+#user .fa-user { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
+.modal-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#teamTable {
+    overflow: auto;
+    height: 50em;
+    width: 100%;
+}

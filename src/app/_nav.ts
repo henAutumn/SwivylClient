@@ -10,40 +10,48 @@ export const navigation = [
     name: 'Profile',
     url: '/profile/company-welcome',
     icon: 'icon-drop',
-    
-    
   },
   {
-    name: 'Assets',
-    url: '/assets',
-    icon: 'icon-pencil',
-    
+    name: 'Team-Table',
+    url: '/team-table',
+    icon: 'icon-user'
   },
   {
-    name: 'Policy Corner',
-    url: '/policy-corner',
-    icon: 'icon-puzzle',
-    
+    name: 'Clients',
+    url: '/clients',
+    icon: 'icon-user'
   },
-  {
-    name: 'Open Items',
-    url: '/open-items',
-    icon: 'icon-cursor',
+  // {
+  //   name: 'Assets',
+  //   url: '/assets',
+  //   icon: 'icon-pencil',
     
-  },
-  {
+  // },
+  // {
+  //   name: 'Policy Corner',
+  //   url: '/policy-corner',
+  //   icon: 'icon-puzzle',
+    
+  // },
+  // {
+  //   name: 'Open Items',
+  //   url: '/open-items',
+  //   icon: 'icon-cursor',
+    
+  // },
+  // {
 
-    name: 'Data Exchange',
-    url: '/data-exchange',
-    icon: 'icon-cursor',
+  //   name: 'Data Exchange',
+  //   url: '/data-exchange',
+  //   icon: 'icon-cursor',
     
-  },
-  {
-    name: 'Contact Agent',
-    url: '/contact-agent',
-    icon: 'icon-bell',
+  // },
+  // {
+  //   name: 'Contact Agent',
+  //   url: '/contact-agent',
+  //   icon: 'icon-bell',
     
-  },
+  // },
   {
     name: 'Messages',
     url: '/messages',
@@ -51,6 +59,11 @@ export const navigation = [
     badge: {
       variant: 'danger',
       text: null
-    }
+    },
+  },
+  {
+    name: 'Notifications',
+    url: '/notification',
+    icon: 'icon-cursor'
   }
 ];

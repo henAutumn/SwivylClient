@@ -8,10 +8,13 @@ import {CommonModule} from '@angular/common';
 import { SlicePipe } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardToDoComponent } from './dashboard-to-do.component'
-import { DashboardSnapshotComponent } from './dashboard-snapshot.component'
-import { DashboardInsuredComponent } from './dashboard-insured.module'
-
+import { AccManagementComponent } from '../../components/acc-management/acc-management.component';
+import { ClientOverviewComponent } from '../../components/client-overview/client-overview.component';
+import {AccManagementService} from '../../Services/acc-management.service';
+import { ClientServicesComponent } from '../../components/client-services/client-services.component';
+import { ApplicationLibraryComponent } from'../../components/application-library/application-library.component';
+import { PolicyAdjustComponent } from '../../components/policy-adjust/policy-adjust.component';
+import { QuickConnectComponent } from '../../components/quick-connect/quick-connect.component';
 
 @NgModule({
   imports: [
@@ -23,9 +26,18 @@ import { DashboardInsuredComponent } from './dashboard-insured.module'
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, DashboardInsuredComponent,  DashboardToDoComponent],
+  declarations: [ 
+    DashboardComponent, 
+    AccManagementComponent, 
+    ClientOverviewComponent, 
+    ClientServicesComponent, 
+    ApplicationLibraryComponent, 
+    PolicyAdjustComponent, 
+    QuickConnectComponent
+  ],
   providers: [
-    NgbActiveModal
+    NgbActiveModal,
+    AccManagementService
   ]
 })
 export class DashboardModule { }

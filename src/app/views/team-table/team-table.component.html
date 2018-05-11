@@ -1,0 +1,60 @@
+<button data-toggle="modal" data-target="#exampleModal" id="buttonAdd" type="button" class="btn btn-dark">Add Team Member
+</button>
+<br><br><br>
+<div class="card activity-timeline dashboard-card">
+  <div class="card-header to-do-header dashboard-header">
+      <table id="teamTable" class="table table-striped">
+          <thead>
+              <tr>
+                  <th>NAME <button id="buttonth" (click) = sortTable(0)><i class="fas fa-sort"></i></button></th> 
+                  <th>EMAIL <button id="buttonth" (click) = sortTable(1)><i class="fas fa-sort"></i></button></th>
+                  <th>TITLE <button id="buttonth" (click) = sortTable(0) ><i class="fas fa-sort"></i></button></th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.firstName}} {{user.lastName}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.title}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add a User</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form (submit)="newUser($event)">
+                    <div class="form-group" id="mail">
+                      <span class="fas fa-envelope"></span>
+                      <Input type="email" id="email" placeholder="Enter user email">
+                    </div>
+                    <div class="form-group" id="pass">
+                      <span class="fas fa-key"></span>
+                      <Input type="text" id="password" placeholder="Enter user password">
+                    </div>
+                    <div class="form-group" id="user">
+                      <span class="fas fa-user"></span>
+                      <Input type="text" id="firstName" placeholder="Enter User First Name">
+                    </div>
+                    <div class="form-group" id="user">
+                        <span class="fas fa-user"></span>
+                        <Input type="text" required id="lastName" placeholder="Enter User Last Name">
+                      </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Create User</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+  </div>
+</div>
+
