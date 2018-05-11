@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: 'team-table.component.html',
@@ -25,9 +26,10 @@ export class TeamTableComponent implements OnInit {
       email: e.target[0].value,
       password: e.target[1].value,
       firstName: e.target[2].value,
-      lastName:e.target[3].value
+      lastName:e.target[3].value,
+      title:e.target[4].value
     }
-    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName).subscribe(
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
       (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
