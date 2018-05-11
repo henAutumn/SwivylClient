@@ -22,7 +22,7 @@ import { navigation } from './../../_nav';
     </nav>
     <nav class="btn-group logoutSupport" style="width:100%">
     <li class="supportClick"><a>Support</a></li>
-    <button type="submit" class="btn btn primary" (click)="logout($event)">Logout</button>
+    <li class="supportClick" (click)="logout($event)" style="color: white;"><a>Logout</a></li>
     </nav>`
 })
 
@@ -31,8 +31,8 @@ export class AppSidebarNavComponent {
   constructor(private router: Router) { }
   logout(e) {
     localStorage.clear();
-      this.router.navigate(['/login'])
-    }
+    this.router.navigate(['/login'])
+  }
 
   public navigation = navigation;
 

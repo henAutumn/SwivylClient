@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
+<<<<<<< HEAD
 import { Observable } from 'rxjs';
+=======
+import { Title } from '@angular/platform-browser';
+>>>>>>> 0dfa47b994a0e94c76e24e9108940ef1dc1adcdb
 
 @Component({
   templateUrl: 'team-table.component.html',
@@ -22,6 +26,7 @@ export class TeamTableComponent implements OnInit {
         this.users= res.data.users
       })
   }
+<<<<<<< HEAD
 
   // addNewUsers=()=>{
   //   this._accmanagementservice.subcribeUsers().subscribe(
@@ -31,6 +36,20 @@ export class TeamTableComponent implements OnInit {
   //   )
   // }
 
+=======
+  newUser(e) {
+    let createdUser = {
+      email: e.target[0].value,
+      password: e.target[1].value,
+      firstName: e.target[2].value,
+      lastName:e.target[3].value,
+      title:e.target[4].value
+    }
+    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (error:any)=>{ alert(`There is already an account associated with that email address`)})
+  }
+>>>>>>> 0dfa47b994a0e94c76e24e9108940ef1dc1adcdb
   sortTable(n){
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("teamTable");
