@@ -45,15 +45,7 @@ export class AccManagementService {
     return this.apollo.query({query:getUsers, fetchPolicy:'network-only'})
   };
 
-<<<<<<< HEAD
-  // subcribeUsers(){
-  //   return this.apollo.subscription()
-  // }
-
-  createUser(email, password, firstName, lastName) {
-=======
   createUser(email, password, firstName, lastName, title) {
->>>>>>> 0dfa47b994a0e94c76e24e9108940ef1dc1adcdb
     return this.apollo.mutate({
       mutation: createUser,
       variables:{
