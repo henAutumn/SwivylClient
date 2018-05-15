@@ -36,5 +36,7 @@ export class AccManagementComponent implements OnInit {
       (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
+
+ 
 }
 
