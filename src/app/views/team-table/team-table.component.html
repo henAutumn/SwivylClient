@@ -23,7 +23,7 @@
               <i class="fas fa-sort"></i>
             </button>
           </th>
-          <th>UPDATE</th>
+          <th>UPDATE/DELETE</th>
         </tr>
       </thead>
       <tbody>
@@ -32,7 +32,8 @@
           <td>{{user.email}}</td>
           <td>{{user.title}}</td>
           <td>
-            <button data-toggle="modal" data-target="#updateModal" (click)="onUpdate(user)">Update User</button>
+            <a data-toggle="modal" data-target="#updateModal" (click)="onUpdate(user)"><span class="fas fa-edit"></span></a>
+            <a data-toggle="modal" data-target="#deleteModal" (click)="onDelete(user)"><span class="fas fa-trash-alt"></span></a>
           </td>
         </tr>
       </tbody>
@@ -101,7 +102,7 @@
           </button>  
         </div>
         <div class="modal-body">
-          <form (submit)="onUpdate($event)">
+          <form (submit)="updateTrigger($event)">
               <div class="form-group" id="id">
                   <span></span>
                   <Input type="id" id="id" value="{{updatedUser.id}}">
