@@ -5,7 +5,6 @@
 <br>
 <div class="card activity-timeline dashboard-card">
   <div class="card-header to-do-header dashboard-header">
-<<<<<<< HEAD
       <table id="teamTable" class="table table-striped">
           <thead>
               <tr>
@@ -19,40 +18,10 @@
               <td>{{user.firstName}} {{user.lastName}}</td>
               <td>{{user.email}}</td>
               <td>{{user.title}}</td>
-              <td (click) = "onUpdate(user)" >update user</td>
+              <button (click) = "onUpdate(user)" data-target="#updatedUser" >update user</button>
             </tr>
           </tbody>
         </table>
-=======
-    <table id="teamTable" class="table table-striped">
-      <thead>
-        <tr>
-          <th>NAME
-            <button id="buttonth" (click)=sortTable(0)>
-              <i class="fas fa-sort"></i>
-            </button>
-          </th>
-          <th>EMAIL
-            <button id="buttonth" (click)=sortTable(1)>
-              <i class="fas fa-sort"></i>
-            </button>
-          </th>
-          <th>TITLE
-            <button id="buttonth" (click)=sortTable(0)>
-              <i class="fas fa-sort"></i>
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{user.firstName}} {{user.lastName}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.title}}</td>
-        </tr>
-      </tbody>
-    </table>
->>>>>>> d38f54d8bdec65b8965be4f2f4a1a788f4db9fbc
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -99,55 +68,51 @@
               </div>
             </form>
           </div>
-<<<<<<< HEAD
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Update a User</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form (submit)="onUpdate($event)">
-                      <div class="form-group" id="id">
-                          <span class="fas fa-envelope"></span>
-                          <Input type="id" id="id" value={{user.id}} >
-                        </div>
-                    <div class="form-group" id="mail">
-                      <span class="fas fa-envelope"></span>
-                      <Input type="email" id="email" value={{user.email}} >
-                    </div>
-                    <div class="form-group" id="pass">
-                      <span class="fas fa-key"></span>
-                      <Input type="text" id="password" value={{user.password}}>
-                    </div>
-                    <div class="form-group" id="userFirst">
-                      <span class="fas fa-user"></span>
-                      <Input type="text" id="firstName" value={{user.firstName}}>
-                    </div>
-                    <div class="form-group" id="userLast">
-                        <span class="fas fa-user"></span>
-                        <Input type="text" required id="lastName"value={{user.lastName}}>
-                      </div>
-                      <div class="form-group" id="title">
-                          <span class="fas fa-user"></span>
-                          <Input type="text" required id="title"value={{user.title}}>
-                        </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary">Update User</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-=======
+          
+
         </div>
       </div>
-    </div>
->>>>>>> d38f54d8bdec65b8965be4f2f4a1a788f4db9fbc
-  </div>
-</div>
+              <div *ngIf = "updatedUser !== { }" data-toggle="modal" data-target="updatedUser" >
+                  <div  id="myModal" class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="updatedUser">Update a User</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span >&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form (submit)="onUpdate($event)">
+                          <div class="form-group" id="id">
+                              <span class="fas fa-envelope"></span>
+                              <Input type="id" id="id" value={{updatedUser.id}} >
+                            </div>
+                        <div class="form-group" id="mail">
+                          <span class="fas fa-envelope"></span>
+                          <Input type="email" id="email" value={{updatedUser.email}} >
+                        </div>
+                        <div class="form-group" id="pass">
+                          <span class="fas fa-key"></span>
+                          <Input type="text" id="password" value={{updatedUser.password}}>
+                        </div>
+                        <div class="form-group" id="userFirst">
+                          <span class="fas fa-user"></span>
+                          <Input type="text" id="firstName" value={{updatedUser.firstName}}>
+                        </div>
+                        <div class="form-group" id="userLast">
+                            <span class="fas fa-user"></span>
+                            <Input type="text" required id="lastName"value={{updatedUser.lastName}}>
+                          </div>
+                          <div class="form-group" id="title">
+                              <span class="fas fa-user"></span>
+                              <Input type="text" required id="title"value={{updatedUser.title}}>
+                            </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Update User</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>  
+              </div>
