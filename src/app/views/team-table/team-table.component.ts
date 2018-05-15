@@ -22,6 +22,22 @@ export class TeamTableComponent implements OnInit {
         this.users= res.data.users
       })
   }
+
+  onUpdate(e){
+    let updatedUser={
+      id:e.target[0].value,
+      email: e.target[1].value,
+      password: e.target[2].value,
+      firstName: e.target[3].value,
+      lastName:e.target[4].value,
+      title:e.target[5].value
+
+    }
+
+    this._accmanagementservice.updateUser(updatedUser.id,updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.password, updatedUser.title ).subscribe((res:any)=>{console.log("Changed user")})
+    
+  }
+
   newUser(e) {
     let createdUser = {
       email: e.target[0].value,

@@ -26,20 +26,39 @@ const getUsers = gql`
     }
   }`;
 
-  // const subscribeUsers=gql `
-  //   subscription userSubscription{
-  //     node{
-  //       firstName
-  //       lastName
-  //       email
-  //     }
-  //   }`;
+  const updateUser = gql`
+    mutation updateUser($id:ID!, $email: String, $password: String, $firstName:String, $lastName:String, $title:String){
+      updateUser(id:$id, email: $email, password: $password, firstName:$firstName, lastName:$lastName, title:$title){
+        user{
+          firstName
+          lastName
+          id
+          email
+        }
+      }
+    }
+  `
 
+  
 @Injectable()
 export class AccManagementService {
 
 
   constructor(private apollo: Apollo) { }
+
+  updateUser(id, email, password, firstName, lastName, title){
+    return this.apollo.mutate({
+      mutation: updateUser,
+      variables:{
+        id,
+        email,
+        password,
+        firstName,
+        lastName,
+        title
+      }
+    })
+  };
 
   getUsers(){
     return this.apollo.query({query:getUsers, fetchPolicy:'network-only'})
