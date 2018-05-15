@@ -90,7 +90,6 @@
 </div>
 
 <div *ngIf="updatedUser !== { }">
-  <h1>hey</h1>
 
   <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -105,23 +104,24 @@
           <form (submit)="onUpdate($event)">
               <div class="form-group" id="id">
                   <span></span>
-                  <Input type="id" id="id" value="{{updatedUser.id}}" >
+                  <Input type="id" id="id" value="{{updatedUser.id}}">
                 </div>
             <div class="form-group" id="email">
               <span></span>
-              <Input type="email" id="email" value={{updatedUser.email}} >
+              <Input type="email" id="email" value={{updatedUser.email}}>
             </div>
+            <br>
             <div class="form-group" id="userFirst">
               <span></span>
               <Input type="text" id="firstName" value={{updatedUser.firstName}}>
             </div>
             <div class="form-group" id="userLast">
                 <span></span>
-                <Input type="text" required id="lastName" value={{updatedUser.lastName}}>
+                <Input type="text" id="lastName" value={{updatedUser.lastName}}>
               </div>
               <div class="form-group" id="title">
                   <span></span>
-                  <Input type="text" required id="title" value={{updatedUser.title}}>
+                  <Input type="text" id="title" value={{updatedUser.title}}>
                 </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Update User</button>
