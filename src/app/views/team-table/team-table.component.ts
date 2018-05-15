@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 export class TeamTableComponent implements OnInit {
   users = [ ];
   updatedUser = {};
-
+  deletedUser = {};
   constructor( private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
@@ -42,6 +42,14 @@ export class TeamTableComponent implements OnInit {
     (error: any) => {alert('There was an error')}
   )
 }
+
+ deleteTrigger(id){
+  this.deletedUser = id
+   this._accmanagementservice.deleteUser(id).subscribe(
+     (res: any) => {alert("You have deleted a user")},
+     (error: any) => {alert("There was an error")}
+   )
+ }
 
   newUser(e) {
     let createdUser = {
