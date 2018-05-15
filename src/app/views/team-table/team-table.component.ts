@@ -7,7 +7,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./team-table.component.scss']
 })
 export class TeamTableComponent implements OnInit {
-  users = [ ]
+  users = [ ];
+  updatedUser = {};
 
   constructor( private _accmanagementservice: AccManagementService) { }
 
@@ -23,20 +24,24 @@ export class TeamTableComponent implements OnInit {
       })
   }
 
-  onUpdate(e){
-    let updatedUser={
-      id:e.target[0].value,
-      email: e.target[1].value,
-      password: e.target[2].value,
-      firstName: e.target[3].value,
-      lastName:e.target[4].value,
-      title:e.target[5].value
-
-    }
-
-    this._accmanagementservice.updateUser(updatedUser.id,updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.password, updatedUser.title ).subscribe((res:any)=>{console.log("Changed user")})
-    
+  onUpdate(user){
+    this.updatedUser=user
   }
+
+  updateTrigger(e){
+  let updatedUser={
+    id: e.target[0].value,
+    email: e.target[1].value,
+    password: e.target[2].value,
+    firstName: e.target[3].value,
+    lastName: e.target[4].value,
+    title: e.target[5].value
+  }
+  this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.password, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
+    (res: any) => {alert('You have updated a user')},
+    (error: any) => {alert('There was an error')}
+  )
+}
 
   newUser(e) {
     let createdUser = {
@@ -50,6 +55,7 @@ export class TeamTableComponent implements OnInit {
       (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
+
   sortTable(n){
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("teamTable");
