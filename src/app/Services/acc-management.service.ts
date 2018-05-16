@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 
 const createUser = gql`
   mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!) {
-    createUser(email: $email, password: $password, firstName:$firstName, lastName:$lastName, title:$title ) {
+    createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title ) {
     user {
       firstName
       lastName
@@ -25,6 +25,8 @@ const getUsers = gql`
       title
     }
   }`;
+
+
 
 const updateUser = gql`
     mutation updateUser($id: ID!, $email: String, $firstName: String, $lastName: String, $title: String){
@@ -73,12 +75,15 @@ export class AccManagementService {
       mutation: createUser,
       variables: {
         email,
+        password,
         firstName,
         lastName,
         title
       }
     })
-  }
+  };
+
+
 
   deleteUser(id){
     return this.apollo.mutate({
