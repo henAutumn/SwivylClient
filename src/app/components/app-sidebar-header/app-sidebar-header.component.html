@@ -2,14 +2,13 @@
 
 
   <div class="companyHeaderTag">
-    <img (click)="imageSubmitClick()" style="border-radius: 10rem;" class="companyLogo" src="{{companyImage}}" alt="user company">
+    <img src="../../assets/img/boots.jpg" (click)="imageSubmitClick()" id="tableBanner" style="border-radius: 10rem;" class="companyLogo" alt="user company">
     <div style="height: 0px; overflow:hidden">
       <!-- upload an image -->
       <form action="">
         <input multiple (change)="imageSubmit($event)" type="file" id="imageSelect" ngf-select ngf-max-size="25MB">
       </form>
     </div>
-    <button data-toggle="modal" data-target="#addAgency">Add Agency</button>
   </div>
   
   <div class="companyHeaderTag user-names">
