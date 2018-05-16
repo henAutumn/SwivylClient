@@ -1,8 +1,12 @@
+
+//ADD TEAM MEMBER BUTTON
 #buttonAdd{
     float: right;
     border-radius: 5px;
     font-family: 'PT Sans', sans-serif;
 }
+
+//SORT TABLE ARROWS
 #buttonth{
     font-family: 'PT Sans', sans-serif;
     background: none;
@@ -10,16 +14,8 @@
     border: none;
     outline: inherit;
 }
-th{
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-}
 
-.btn-primary{
-    margin-bottom: -1.6em;
-    border-radius: 10px;
-}
-
+//ADD TEAM MEMBER MODAL
 #email, #password, #firstName, #lastName {
     width: 33.5em; 
     margin: 0 auto;
@@ -52,22 +48,45 @@ th{
     font-size: 15px;
 }
 
-.modal-title {
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-
 #teamTable {
     overflow: auto;
     height: 50em;
     width: 100%;
 }
 
+
+.btn-primary{
+    margin-bottom: -1.6em;
+    border-radius: 10px;
+}
+
+.modal-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+//UPDATE AND DELETE ICONS
 .fa-edit {
     margin-left: 1.4em;
 }
 
 .fa-trash-alt {
     margin-left: 2.1em;
+}
+
+//UPDATE USER MODAL
+#modalId, #modalEmail, #modalFirstName, #modalLastName, #modalTitle {
+    width: 33.5em;
+    margin: 0 auto;
+}
+
+#id {
+    visibility: hidden;
+}
+
+//GLOBAL
+th{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
 }
