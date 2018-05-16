@@ -21,6 +21,7 @@ export class AccManagementComponent implements OnInit {
     this._accmanagementservice.getUsers().subscribe(
       (res:any)=>{
          this.userCount = res.data.users.length;
+        
       })
   }
 
@@ -34,7 +35,8 @@ export class AccManagementComponent implements OnInit {
       title:e.target[4].value
     }
     this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
-      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
+    },
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
 

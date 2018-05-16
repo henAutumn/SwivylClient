@@ -73,6 +73,7 @@ export class AccManagementService {
       mutation: createUser,
       variables: {
         email,
+        password,
         firstName,
         lastName,
         title

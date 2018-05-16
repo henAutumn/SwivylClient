@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
 import { Title } from '@angular/platform-browser';
+// import { Location } from '@angular/common';
 
 @Component({
   templateUrl: 'team-table.component.html',
@@ -37,17 +38,26 @@ export class TeamTableComponent implements OnInit {
     title: e.target[4].value
   }
   this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
-    (res: any) => {alert('You have updated a user')},
+    (res: any) => {confirm('You have updated a user')
+    this.getAllUsers();},
     (error: any) => console.log(error)
   )
+  
 }
 
- deleteTrigger(id){
-  this.deletedUser = id
-   this._accmanagementservice.deleteUser(id).subscribe(
-     (res: any) => {alert("You have deleted a user")},
-     (error: any) => {alert("There was an error")}
-   )
+deleteTrigger(id){
+  this.deletedUser = id;
+ 
+  if (confirm("Are you sure you want to delete this user?")){
+    this._accmanagementservice.deleteUser(id).subscribe(
+      (res: any) => {alert("You deleted a User")
+      this.getAllUsers()},
+      (error: any) => {alert("There was an error")}
+    )
+    } else{
+      close
+    }
+   ;
  }
 
   newUser(e) {
@@ -59,7 +69,8 @@ export class TeamTableComponent implements OnInit {
       title:e.target[4].value
     }
     this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
-      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)
+      },
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
 
