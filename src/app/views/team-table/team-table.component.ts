@@ -45,7 +45,7 @@ export class TeamTableComponent implements OnInit {
  deleteTrigger(id){
   this.deletedUser = id
    this._accmanagementservice.deleteUser(id).subscribe(
-     (res: any) => {alert("You have deleted a user")},
+     (res: any) => {confirm("Are you sure you want to delete this user?")},
      (error: any) => {alert("There was an error")}
    )
  }
