@@ -15,6 +15,7 @@ import { ClientServicesComponent } from '../../components/client-services/client
 import { ApplicationLibraryComponent } from'../../components/application-library/application-library.component';
 import { PolicyAdjustComponent } from '../../components/policy-adjust/policy-adjust.component';
 import { QuickConnectComponent } from '../../components/quick-connect/quick-connect.component';
+import { AgencyService } from '../../Services/agency.service';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { QuickConnectComponent } from '../../components/quick-connect/quick-conn
   ],
   providers: [
     NgbActiveModal,
-    AccManagementService
+    AccManagementService,
+    AgencyService
   ]
 })
 export class DashboardModule { }

@@ -3,6 +3,7 @@ import { Apollo } from 'apollo-angular';
 import { HttpClient } from '@angular/common/http';
 import { UploadImageService } from '../../Services/upload-image.service';
 
+
 @Component({
   selector: 'app-sidebar-header',
   templateUrl: './app-sidebar-header.component.html'
@@ -19,6 +20,8 @@ export class AppSidebarHeaderComponent {
   ngOnInit(){
 
   }
+
+  
   
   // imageSubmit(event) {
   //   this.selectedFile = <File>event.target.files[0];

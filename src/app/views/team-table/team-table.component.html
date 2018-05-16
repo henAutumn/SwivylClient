@@ -47,7 +47,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add a User</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Add Team Member</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -56,19 +56,19 @@
             <form (submit)="newUser($event)">
               <div class="form-group" id="mail">
                 <span class="fas fa-envelope"></span>
-                <Input type="email" id="email" value="{{updatedUser.email}}">
+                <Input type="email" id="email" placeholder="Enter user email">
               </div>
               <div class="form-group" id="pass">
                 <span class="fas fa-key"></span>
-                <Input type="text" id="password" value="{{updatedUser.password}}">
+                <Input type="text" id="password" placeholder="Enter user password">
               </div>
               <div class="form-group" id="user">
                 <span class="fas fa-user"></span>
-                <Input type="text" id="firstName" value="{{updatedUser.firstName}}">
+                <Input type="text" id="firstName" placeholder="Enter user first name">
               </div>
               <div class="form-group" id="user">
                 <span class="fas fa-user"></span>
-                <Input type="text" required id="lastName" value="{{updatedUser.lastName}}">
+                <Input type="text" required id="lastName" placeholder="Enter user last name">
               </div>
               <div class="form-group" id="user">
                 <span class="fas fa-user"></span>
@@ -106,26 +106,25 @@
         </div>
         <div class="modal-body">
           <form (submit)="updateTrigger($event)">
-            <div class="form-group" id="id">
+            <div class="form-group" id="editId">
               <span></span>
-              <Input type="id" id="id" value="{{updatedUser.id}}">
+              <Input type="id" id="modalId" value={{updatedUser.id}}>
             </div>
-            <div class="form-group" id="email">
+            <div class="form-group" id="editEmail">
               <span></span>
-              <Input type="email" id="email" value={{updatedUser.email}}>
+              <Input type="email" id="modalEmail" value={{updatedUser.email}}>
             </div>
-            <br>
-            <div class="form-group" id="userFirst">
+            <div class="form-group" id="editUserFirst">
               <span></span>
-              <Input type="text" id="firstName" value={{updatedUser.firstName}}>
+              <Input type="text" id="modalFirstName" value={{updatedUser.firstName}}>
             </div>
-            <div class="form-group" id="userLast">
+            <div class="form-group" id="editUserLast">
               <span></span>
-              <Input type="text" id="lastName" value={{updatedUser.lastName}}>
+              <Input type="text" id="modalLastName" value={{updatedUser.lastName}}>
             </div>
-            <div class="form-group" id="title">
+            <div class="form-group" id="editTitle">
               <span></span>
-              <Input type="text" id="title" value={{updatedUser.title}}>
+              <Input type="text" id="modalTitle" value={{updatedUser.title}}>
             </div>
             <div class="modal-footer">
               <button type="submit"  class="btn btn-primary">Update User</button>

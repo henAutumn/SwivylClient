@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
+import { AgencyService } from '../../Services/agency.service';
+
 
 @Component({
   selector: 'app-acc-management',
@@ -10,7 +12,9 @@ import { AccManagementService } from '../../Services/acc-management.service';
 export class AccManagementComponent implements OnInit {
   userCount=0
   constructor(
-    private _accmanagementservice: AccManagementService) { }
+    private _accmanagementservice: AccManagementService,
+    private _agencyservice: AgencyService
+  ) { }
 
   ngOnInit() {
     // this.newUser()
@@ -37,6 +41,18 @@ export class AccManagementComponent implements OnInit {
       (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
+
+  newAgency(e){
+    let createdAgency = {
+      masteruser: "cjh97agdnkd8b0b62uq5ikbyv ",// inyuyasha
+      name: e.target[0].value,
+      img: e.target[1].value,
+    }
+    this._agencyservice.createAgency(createdAgency.masteruser, createdAgency.name, createdAgency.img).subscribe(
+      (res:any) => {alert('You have succesfully created an Agency')},
+      (error:any) => {alert('There was an error')}
+    )
+ }
 
  
 }
