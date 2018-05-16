@@ -15,7 +15,6 @@ export class TeamTableComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUsers();
-    // this.addNewUsers();
   }
 
   getAllUsers = () => {

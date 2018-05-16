@@ -12,8 +12,6 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { LoginService } from './Services/login.service'
 import { UploadImageService } from './Services/upload-image.service';
-
-
 // Import containers
 import {
   FullLayoutComponent,

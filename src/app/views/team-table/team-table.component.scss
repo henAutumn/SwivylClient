@@ -77,12 +77,53 @@
 
 //UPDATE USER MODAL
 #modalId, #modalEmail, #modalFirstName, #modalLastName, #modalTitle {
-    width: 33.5em;
-    margin: 0 auto;
+    width: 28em;
+    float: right;
 }
 
-#id {
-    visibility: hidden;
+#editId, #editEmail, #editUserFirst, #editUserLast, #editTitle {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+#modalId {
+    display: none;
+}
+
+#editEmail { position: relative; }
+#editEmail input { text-indent: 25px;}
+#editEmail .fa-envelope { 
+    top: 6.7px;
+    position: absolute;
+    left: 5.3em;
+    font-size: 15px;
+}
+
+#editUserFirst { position: relative; }
+#editUserFirst input { text-indent: 25px;}
+#editUserFirst .fa-user { 
+    top: 6.7px;
+    position: absolute;
+    left: 5.3em;
+    font-size: 15px;
+}
+
+#editUserLast { position: relative; }
+#editUserLast input { text-indent: 25px;}
+#editUserLast .fa-user { 
+    top: 6.7px;
+    position: absolute;
+    left: 5.3em;
+    font-size: 15px;
+}
+
+#editTitle { position: relative; }
+#editTitle input { text-indent: 25px;}
+#editTitle .fa-address-card { 
+    top: 6.7px;
+    position: absolute;
+    left: 5.2em;
+    font-size: 15px;
 }
 
 //GLOBAL

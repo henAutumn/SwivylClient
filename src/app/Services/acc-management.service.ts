@@ -26,6 +26,8 @@ const getUsers = gql`
     }
   }`;
 
+
+
 const updateUser = gql`
     mutation updateUser($id: ID!, $email: String, $firstName: String, $lastName: String, $title: String){
       updateUser(id: $id, email: $email, firstName: $firstName, lastName: $lastName, title: $title){
@@ -79,7 +81,9 @@ export class AccManagementService {
         title
       }
     })
-  }
+  };
+
+
 
   deleteUser(id){
     return this.apollo.mutate({
