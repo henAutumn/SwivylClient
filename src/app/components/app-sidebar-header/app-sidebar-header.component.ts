@@ -17,18 +17,17 @@ export class AppSidebarHeaderComponent {
   constructor(private apollo: Apollo, private _uploadimageservice: UploadImageService){}
 
   ngOnInit(){
-
   }
   
-  // imageSubmit(event) {
-  //   this.selectedFile = <File>event.target.files[0];
-  // }
-
-  // imageSubmitClick(event) {
-  //   let input = document.getElementById('imageSelect')
-  //   console.log(input)
-  //   input.click()
-  // }
+  imageSubmit(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+  
+  imageSubmitClick(event) {
+    let input = document.getElementById('imageSelect')
+    console.log(input)
+    input.click()
+  }
 
   // onUpload() {
   //   const fd = new FormData();
