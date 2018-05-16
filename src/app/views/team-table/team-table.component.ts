@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccManagementService } from '../../Services/acc-management.service';
 import { Title } from '@angular/platform-browser';
+// import { Location } from '@angular/common';
 
 @Component({
   templateUrl: 'team-table.component.html',
