@@ -7,102 +7,112 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./team-table.component.scss']
 })
 export class TeamTableComponent implements OnInit {
-  users = [ ];
+  users = [];
   updatedUser = {};
   deletedUser = {};
-  constructor( private _accmanagementservice: AccManagementService) { }
+  constructor(private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
     this.getAllUsers();
     // this.addNewUsers();
   }
 
-  getAllUsers=()=>{
+  getAllUsers = () => {
     this._accmanagementservice.getUsers().subscribe(
-      (res:any)=>{
-        this.users= res.data.users
+      (res: any) => {
+        this.users = res.data.users
       })
   }
 
-  onUpdate(user){
-    this.updatedUser=user
+  onUpdate(user) {
+    this.updatedUser = user
   }
 
-  updateTrigger(e){
-  let updatedUser={
-    id: e.target[0].value,
-    email: e.target[1].value,
-    firstName: e.target[2].value,
-    lastName: e.target[3].value,
-    title: e.target[4].value
-  }
-  this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
-    (res: any) => {alert('You have updated a user')},
-    (error: any) => console.log(error)
-  )
-}
-
- deleteTrigger(id){
-  this.deletedUser = id
-   this._accmanagementservice.deleteUser(id).subscribe(
-     (res: any) => {alert("You have deleted a user")},
-     (error: any) => {alert("There was an error")}
-   )
- }
-
-  newUser(e) {
-    let createdUser = {
-      email: e.target[0].value,
-      password: e.target[1].value,
+  updateTrigger(e) {
+    let updatedUser = {
+      id: e.target[0].value,
+      email: e.target[1].value,
       firstName: e.target[2].value,
-      lastName:e.target[3].value,
-      title:e.target[4].value
+      lastName: e.target[3].value,
+      title: e.target[4].value
     }
-    this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
-      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
-      (error:any)=>{ alert(`There is already an account associated with that email address`)})
+    this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
+      (res: any) => { alert('You have updated a user'), this.getAllUsers()
+    },
+      (error: any) => console.log(error)
+    )
   }
 
-  sortTable(n){
-    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("teamTable");
-    switching = true;
+  deleteTrigger(id) {
+    this.deletedUser = id
 
-    dir = "asc";
+    if (confirm("Are you sure you want to delete this user?")) {
+      this._accmanagementservice.deleteUser(id).subscribe(
+        (res: any) => {
+          alert("A wise decision!")
+          this.getAllUsers()
+        },
+        (error: any) => { alert("There was an error") }
+      )
+    } else {
+      alert("You are very brave!")
+    }
+  }
 
-    while(switching){
-      switching = false;
-      rows = table.getElementsByTagName("TR");
+    newUser(e) {
+      let createdUser = {
+        email: e.target[0].value,
+        password: e.target[1].value,
+        firstName: e.target[2].value,
+        lastName: e.target[3].value,
+        title: e.target[4].value
+      }
+      this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
+        (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
+      },
+        (error: any) => { alert(`There is already an account associated with that email address`) })
+    }
 
-      for(i = 1; i < (rows.length - 1 ); i++){
-        shouldSwitch = false;
+    sortTable(n){
+      let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("teamTable");
+      switching = true;
 
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
+      dir = "asc";
 
-        if (dir == "asc"){
-          if(x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
-            shouldSwitch = true;
-            break;
-          }
-        }else if(dir == "desc"){
-          if(x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()){
-            shouldSwitch = true;
-            break;
+      while (switching) {
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
           }
         }
-      }
-      if(shouldSwitch){
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        switchcount++;
-      }else{
-        if(switchcount == 0 && dir == "asc"){
-          dir = "desc";
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
           switching = true;
+          switchcount++;
+        } else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
         }
       }
     }
-  }
 
-}
+  }
