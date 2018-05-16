@@ -46,9 +46,9 @@ export class AccManagementComponent implements OnInit {
 
   newAgency(e){
     let createdAgency = {
-      masteruser: "cjh97agdnkd8b0b62uq5ikbyv ",// inyuyasha
+      masteruser: "cjh97agdnkd8b0b62uq5ikbyv ",// inuyasha
       name: e.target[0].value,
-      img: e.target[1].value,
+      img: e.target[1].value
     }
     this._agencyservice.createAgency(createdAgency.masteruser, createdAgency.name, createdAgency.img).subscribe(
       (res:any) => {alert('You have succesfully created an Agency')},
