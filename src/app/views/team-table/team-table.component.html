@@ -32,11 +32,12 @@
           <td>{{user.email}}</td>
           <td>{{user.title}}</td>
           <td>
-            <a data-toggle="modal" data-target="#updateModal" (click)="onUpdate(user)"><span class="fas fa-edit"></span></a>
-            <a data-toggle="modal" data-target="#deleteModal" (click)="onDelete(user)"><span class="fas fa-trash-alt"></span></a>
-          </td>
-          <td>
-            <button data-toggle="modal" data-target="#deleteModal" (click)="deleteTrigger(user.id)"> Delete</button>
+            <a data-toggle="modal" data-target="#updateModal" (click)="onUpdate(user)">
+              <span class="fas fa-edit"></span>
+            </a>
+            <a data-toggle="modal" data-target="#deleteModal" (click)="deleteTrigger(user.id)">
+              <span class="fas fa-trash-alt"></span>
+            </a>
           </td>
         </tr>
       </tbody>
@@ -102,14 +103,14 @@
           <h5 class="modal-title" id="updateModal">Update a User</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>  
+          </button>
         </div>
         <div class="modal-body">
           <form (submit)="updateTrigger($event)">
-              <div class="form-group" id="id">
-                  <span></span>
-                  <Input type="id" id="id" value="{{updatedUser.id}}">
-                </div>
+            <div class="form-group" id="id">
+              <span></span>
+              <Input type="id" id="id" value="{{updatedUser.id}}">
+            </div>
             <div class="form-group" id="email">
               <span></span>
               <Input type="email" id="email" value={{updatedUser.email}}>
@@ -120,13 +121,13 @@
               <Input type="text" id="firstName" value={{updatedUser.firstName}}>
             </div>
             <div class="form-group" id="userLast">
-                <span></span>
-                <Input type="text" id="lastName" value={{updatedUser.lastName}}>
-              </div>
-              <div class="form-group" id="title">
-                  <span></span>
-                  <Input type="text" id="title" value={{updatedUser.title}}>
-                </div>
+              <span></span>
+              <Input type="text" id="lastName" value={{updatedUser.lastName}}>
+            </div>
+            <div class="form-group" id="title">
+              <span></span>
+              <Input type="text" id="title" value={{updatedUser.title}}>
+            </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Update User</button>
             </div>
