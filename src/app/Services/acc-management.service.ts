@@ -27,13 +27,13 @@ const getUsers = gql`
   }`;
 
 const updateUser = gql`
-    mutation updateUser($id: ID!, $email: String, $password: String, $firstName: String, $lastName: String, $title: String){
-      updateUser(id: $id, email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title){
-       id
-       email
-       firstName
-       lastName
-       title
+    mutation updateUser($id: ID!, $email: String, $firstName: String, $lastName: String, $title: String){
+      updateUser(id: $id, email: $email, firstName: $firstName, lastName: $lastName, title: $title){
+        id
+        email
+        firstName
+        lastName
+        title
       }
     }`;
 
@@ -51,13 +51,12 @@ export class AccManagementService {
 
   constructor(private apollo: Apollo) { }
 
-  updateUser(id, email, password, firstName, lastName, title) {
+  updateUser(id, email, firstName, lastName, title) {
     return this.apollo.mutate({
       mutation: updateUser,
       variables: {
         id,
         email,
-        password,
         firstName,
         lastName,
         title
@@ -74,7 +73,6 @@ export class AccManagementService {
       mutation: createUser,
       variables: {
         email,
-        password,
         firstName,
         lastName,
         title
