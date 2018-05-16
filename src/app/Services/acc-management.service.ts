@@ -26,23 +26,26 @@ const getUsers = gql`
     }
   }`;
 
-  const deleteUser = gql`
-    mutation deleteUser($id:ID!){
-      firstName
-      lastName
-    }
-  `
+
 
 const updateUser = gql`
-    mutation updateUser($id: ID!, $email: String,  $firstName: String, $lastName: String, $title: String){
-      updateUser(id: $id, email: $email,  firstName: $firstName, lastName: $lastName, title: $title){
-          id
-          email
-          firstName
-          lastName
-          title
+    mutation updateUser($id: ID!, $email: String, $firstName: String, $lastName: String, $title: String){
+      updateUser(id: $id, email: $email, firstName: $firstName, lastName: $lastName, title: $title){
+        id
+        email
+        firstName
+        lastName
+        title
       }
     }`;
+
+const deleteUser = gql`
+mutation deleteUser($id: ID!){
+  deleteUser(id: $id){
+    firstName
+    lastName
+  }
+}`
 
 @Injectable()
 export class AccManagementService {
@@ -80,10 +83,12 @@ export class AccManagementService {
     })
   };
 
+
+
   deleteUser(id){
     return this.apollo.mutate({
-      mutation:deleteUser,
-      variables:{
+      mutation: deleteUser,
+      variables: {
         id
       }
     })

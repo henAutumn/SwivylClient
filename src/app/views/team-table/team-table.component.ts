@@ -9,12 +9,11 @@ import { Title } from '@angular/platform-browser';
 export class TeamTableComponent implements OnInit {
   users = [ ];
   updatedUser = {};
-
+  deletedUser = {};
   constructor( private _accmanagementservice: AccManagementService) { }
 
   ngOnInit() {
     this.getAllUsers();
-    // this.addNewUsers();
   }
 
   getAllUsers=()=>{
@@ -37,18 +36,27 @@ export class TeamTableComponent implements OnInit {
     lastName: e.target[3].value,
     title: e.target[4].value
   }
-  this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email,  updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
-    (res: any) => {alert('You have updated a user')},
-    (error: any) => {alert('There was an error')}
+  this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
+    (res: any) => {alert('You have updated a user')
+    this.getAllUsers()},
+    (error: any) => console.log(error)
   )
 }
 
-  onDelete(id){
+ deleteTrigger(id){
+  this.deletedUser = id;
+
+  if (confirm("Are you sure you want to delete this user?")){
     this._accmanagementservice.deleteUser(id).subscribe(
-      (res:any) =>{alert('You have delete a user')},
-      (error:any) =>{alert('There was an error')}
+      (res: any) => {alert("You deleted a User")
+      this.getAllUsers()},
+      (error: any) => {alert("There was an error")}
     )
-  }
+    } else{
+      close
+    }
+   ;
+ }
 
   newUser(e) {
     let createdUser = {
@@ -59,7 +67,8 @@ export class TeamTableComponent implements OnInit {
       title:e.target[4].value
     }
     this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
-      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
+      (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)
+      this.getAllUsers()},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
 

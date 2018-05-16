@@ -24,6 +24,7 @@ export class AccManagementComponent implements OnInit {
       })
   }
 
+
   newUser(e) {
     let createdUser = {
       email: e.target[0].value,
