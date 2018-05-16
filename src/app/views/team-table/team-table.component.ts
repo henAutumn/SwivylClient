@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class TeamTableComponent implements OnInit {
   users = [ ];
-  updatedUser = { };
+  updatedUser = {};
 
   constructor( private _accmanagementservice: AccManagementService) { }
 
@@ -24,14 +24,31 @@ export class TeamTableComponent implements OnInit {
       })
   }
 
+  //updating users 
   onUpdate(user){
-    console.log(user)
-    this.updatedUser=user;
-    console.log(this.updatedUser)
+    this.updatedUser=user
   }
-  
 
-  // another function for 
+  updateTrigger(e){
+  let updatedUser={
+    id: e.target[0].value,
+    email: e.target[1].value,
+    firstName: e.target[2].value,
+    lastName: e.target[3].value,
+    title: e.target[4].value
+  }
+  this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email,  updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
+    (res: any) => {alert('You have updated a user')},
+    (error: any) => {alert('There was an error')}
+  )
+}
+
+  onDelete(id){
+    this._accmanagementservice.deleteUser(id).subscribe(
+      (res:any) =>{alert('You have delete a user')},
+      (error:any) =>{alert('There was an error')}
+    )
+  }
 
   newUser(e) {
     let createdUser = {
@@ -45,6 +62,7 @@ export class TeamTableComponent implements OnInit {
       (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `)},
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
   }
+
   sortTable(n){
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("teamTable");

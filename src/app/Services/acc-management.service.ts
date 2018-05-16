@@ -26,31 +26,51 @@ const getUsers = gql`
     }
   }`;
 
-  const updateUser = gql`
-    mutation updateUser($id:ID!, $email: String, $password: String, $firstName:String, $lastName:String, $title:String){
-      updateUser(id:$id, email: $email, password: $password, firstName:$firstName, lastName:$lastName, title:$title){
-        user{
-          firstName
-          lastName
-          id
-          email
-        }
-      }
+  const deleteUser = gql`
+    mutation deleteUser($id:ID!){
+      firstName
+      lastName
     }
   `
 
-  
+const updateUser = gql`
+    mutation updateUser($id: ID!, $email: String,  $firstName: String, $lastName: String, $title: String){
+      updateUser(id: $id, email: $email,  firstName: $firstName, lastName: $lastName, title: $title){
+          id
+          email
+          firstName
+          lastName
+          title
+      }
+    }`;
+
 @Injectable()
 export class AccManagementService {
 
 
   constructor(private apollo: Apollo) { }
 
-  updateUser(id, email, password, firstName, lastName, title){
+  updateUser(id, email, firstName, lastName, title) {
     return this.apollo.mutate({
       mutation: updateUser,
-      variables:{
+      variables: {
         id,
+        email,
+        firstName,
+        lastName,
+        title
+      }
+    })
+  };
+
+  getUsers() {
+    return this.apollo.query({ query: getUsers, fetchPolicy: 'network-only' })
+  };
+
+  createUser(email, password, firstName, lastName, title) {
+    return this.apollo.mutate({
+      mutation: createUser,
+      variables: {
         email,
         password,
         firstName,
@@ -60,19 +80,11 @@ export class AccManagementService {
     })
   };
 
-  getUsers(){
-    return this.apollo.query({query:getUsers, fetchPolicy:'network-only'})
-  };
-
-  createUser(email, password, firstName, lastName, title) {
+  deleteUser(id){
     return this.apollo.mutate({
-      mutation: createUser,
+      mutation:deleteUser,
       variables:{
-        email,
-        password,
-        firstName,
-        lastName,
-        title
+        id
       }
     })
   }
