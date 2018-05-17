@@ -5,17 +5,18 @@ import gql from 'graphql-tag';
 
 
 const createAgency = gql`
-  mutation createAgency($masteruser:String!, $name:String!, $img:string){
+  mutation createAgency($masteruser:String!, $name:String!, $img:String!){
     createAgency(masteruser:$masteruser, name:$name, img:$img){
       name
       img
       id
+      
     }
   }
 `; 
 
 const updateAgency = gql`
-  mutation updateAgency($id:ID!, $masteruser:String! $name:String, $img:String){
+  mutation updateAgency($id:ID!, $masteruser:String! $name:String, $img:String!){
     updateAgency(id:$id, masteruser:$masteruser, name:$name, img:$img){
       name
       img
@@ -54,7 +55,7 @@ export class AgencyService {
       variables:{
         masteruser,
         name,
-        img,
+        img
       }
     })
   };

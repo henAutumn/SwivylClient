@@ -3,17 +3,13 @@
 
   <div class="companyHeaderTag">
     <img src="../../assets/img/boots.jpg" (click)="imageSubmitClick()" id="tableBanner" style="border-radius: 10rem;" class="companyLogo" alt="user company">
+    <div id="name"></div>
     <div style="height: 0px; overflow:hidden">
       <!-- upload an image -->
       <form action="">
         <input multiple (change)="imageSubmit($event)" type="file" id="imageSelect" ngf-select ngf-max-size="25MB">
       </form>
     </div>
-  </div>
-  
-  <div class="companyHeaderTag user-names">
-    <p class="userFirst">{{firstName}}</p>
-    <p class="userLast">{{lastName}}</p>
   </div>
 </div>
   

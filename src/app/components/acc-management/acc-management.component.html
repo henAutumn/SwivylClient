@@ -77,49 +77,28 @@
         </div>
       </div>
     </div>
-    
+
 <div class="modal fade" id="addAgency" tabindex="-2" role="dialog" aria-labelledby="addAgencyLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="add">Add a Team Member</h5>
+            <h5 class="modal-title" id="add">Add an Agency</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form (submit)="newUser($event)">
-              <div class="form-group" id="mail">
+            <form (submit)="newAgency($event)">
+              <div class="form-group" id="name">
                 <span class="fas fa-envelope"></span>
-                <Input type="email" id="email" placeholder="Enter user email">
+                <Input type="text" id="name" placeholder="Enter Agency Name">
               </div>
-              <div class="form-group" id="pass">
+              <div class="form-group" id="img">
                 <span class="fas fa-key"></span>
-                <Input type="text" id="password" placeholder="Enter user password">
-              </div>
-              <div class="form-group" id="user">
-                <span class="fas fa-user"></span>
-                <Input type="text" id="firstName" placeholder="Enter User First Name">
-              </div>
-              <div class="form-group" id="user">
-                  <span class="fas fa-user"></span>
-                  <Input type="text" required id="lastName" placeholder="Enter User Last Name">
-                </div>
-              <div class="form-group" id="user">
-                <span class="fas fa-user"></span>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Title</label>
-                    </div>
-                    <select class="custom-select" id="user">
-                      <option selected>Title...</option>
-                      <option value="Broker">Broker</option>
-                      <option value="Client">Client</option>
-                    </select>
-                  </div>
+                <Input type="text" id="img" placeholder="Enter Img URL">
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Create User</button>
+                <button type="submit" class="btn btn-primary">Create Agency</button>
               </div>
             </form>
           </div>
