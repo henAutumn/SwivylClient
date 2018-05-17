@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
       password: e.target[1].value
     }
     this._loginService.loginUser(loggedUser.email, loggedUser.password).subscribe((res: any) => {
-      localStorage.setItem('token', res.data.login.token)
+      console.log(res);
+      localStorage.setItem('token', res.data.login.token);
+      localStorage.setItem('isMU', res.data.login.user.isMU);
       if(localStorage.token){
         this.router.navigate(['/dashboard'])
       } else {
