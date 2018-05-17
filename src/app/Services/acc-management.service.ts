@@ -3,8 +3,8 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const createUser = gql`
-  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!) {
-    createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title ) {
+  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!, $isMU:Boolean) {
+    createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title, isMU:$isMU ) {
     user {
       firstName
       lastName
@@ -70,7 +70,7 @@ export class AccManagementService {
     return this.apollo.query({ query: getUsers, fetchPolicy: 'network-only' })
   };
 
-  createUser(email, password, firstName, lastName, title) {
+  createUser(email, password, firstName, lastName, title, isMU) {
     return this.apollo.mutate({
       mutation: createUser,
       variables: {
@@ -78,7 +78,8 @@ export class AccManagementService {
         password,
         firstName,
         lastName,
-        title
+        title,
+        isMU
       }
     })
   };

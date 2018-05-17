@@ -9,8 +9,7 @@ const createAgency = gql`
     createAgency(masteruser:$masteruser, name:$name, img:$img){
       name
       img
-      id
-      
+      id  
     }
   }
 `; 
