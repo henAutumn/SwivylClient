@@ -12,6 +12,7 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { LoginService } from './Services/login.service'
 import { UploadImageService } from './Services/upload-image.service';
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -72,7 +73,6 @@ import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -85,7 +85,8 @@ import { AuthGaurd } from './guards/auth.guard';
     HttpModule,
     //Apollo Modules
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    
   ],
   declarations: [
     AppComponent,
@@ -95,6 +96,7 @@ import { AuthGaurd } from './guards/auth.guard';
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
+    
     
   ],
   providers: [
