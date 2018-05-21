@@ -18,9 +18,10 @@ export class TeamTableComponent implements OnInit {
   }
 
   getAllUsers = () => {
-    this._accmanagementservice.getUsers().subscribe(
+    const id = localStorage.getItem("agency")
+    this._accmanagementservice.getUsers(id).subscribe(
       (res: any) => {
-        this.users = res.data.users
+          this.users = res.data.agency.teammembers  
       })
   }
 
@@ -29,37 +30,45 @@ export class TeamTableComponent implements OnInit {
   }
 
   updateTrigger(e) {
-    let updatedUser = {
-      id: e.target[0].value,
-      email: e.target[1].value,
-      firstName: e.target[2].value,
-      lastName: e.target[3].value,
-      title: e.target[4].value
-    }
-    this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
-      (res: any) => { alert('You have updated a user'), this.getAllUsers()
-    },
+    if (localStorage.getItem("isMu") == "true"){
+      let updatedUser = {
+        id: e.target[0].value,
+        email: e.target[1].value,
+        firstName: e.target[2].value,
+        lastName: e.target[3].value,
+        title: e.target[4].value
+      }
+      this._accmanagementservice.updateUser(updatedUser.id, updatedUser.email, updatedUser.firstName, updatedUser.lastName, updatedUser.title).subscribe(
+        (res: any) => { alert('You have updated a user'), this.getAllUsers()
+      },
       (error: any) => console.log(error)
     )
+  } else{
+    alert("You are not authoized to update users.")
+  }
   }
 
   deleteTrigger(id) {
-    this.deletedUser = id
-
-    if (confirm("Are you sure you want to delete this user?")) {
-      this._accmanagementservice.deleteUser(id).subscribe(
-        (res: any) => {
-          alert("A wise decision!")
-          this.getAllUsers()
-        },
-        (error: any) => { alert("There was an error") }
-      )
-    } else {
-      alert("You are very brave!")
+    if (localStorage.getItem("isMu") == "true"){
+      this.deletedUser = id
+      if (confirm("Are you sure you want to delete this user?")) {
+        this._accmanagementservice.deleteUser(id).subscribe(
+          (res: any) => {
+            alert("You have successfully deleted this user")
+            this.getAllUsers()
+          },
+          (error: any) => { alert("There was an error") }
+        )
+      } else {
+        alert("User Delete was cancelled")
+      }
+    } else{
+      alert("You are not authorized to delete User.")
     }
   }
 
     newUser(e) {
+      let agency =  localStorage.getItem("agency");
       if (localStorage.getItem("isMu") == "true"){
         let createdUser = {
           email: e.target[0].value,
@@ -67,9 +76,10 @@ export class TeamTableComponent implements OnInit {
           firstName: e.target[2].value,
           lastName: e.target[3].value,
           title: e.target[4].value,
-          isMU:false
+          isMU:false,
+          agency:agency
         }
-        this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title, createdUser.isMU).subscribe(
+        this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title, createdUser.isMU, createdUser.agency).subscribe(
           (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
         },
         (error: any) => { alert(`There is already an account associated with that email address`) })

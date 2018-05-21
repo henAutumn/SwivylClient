@@ -3,8 +3,8 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const createUser = gql`
-  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!, $isMU:Boolean) {
-    createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title, isMU:$isMU ) {
+  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!, $isMU:Boolean, $agency:String) {
+    createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title, isMU:$isMU, agency:$agency) {
     user {
       firstName
       lastName
@@ -15,17 +15,31 @@ const createUser = gql`
 }`;
 
 const getUsers = gql`
-  query users{
-    users{
-      id
-      email
-      password
-      firstName
-      lastName
-      title
+  query agency($id:ID!){
+    agency(id:$id){
+      teammembers{
+        id
+        firstName
+        lastName
+        title
+        isMU
+      }
     }
   }`;
 
+const addTeamMember = gql `
+  mutation addTeamMember($id:ID!, $teammember:String!){
+    addTeamMember(id:$id, teammember:$teammember)
+    {teammembers{
+        id
+        firstName
+        lastName
+        title
+        isMU
+      }
+    }
+  }
+  `
 
 
 const updateUser = gql`
@@ -66,11 +80,26 @@ export class AccManagementService {
     })
   };
 
-  getUsers() {
-    return this.apollo.query({ query: getUsers, fetchPolicy: 'network-only' })
+  getUsers(id) {
+    return this.apollo.query({ 
+      query: getUsers,
+        variables:{
+          id
+        },
+       fetchPolicy: 'network-only' })
   };
 
-  createUser(email, password, firstName, lastName, title, isMU) {
+  addTeamMember(id, teammember){
+    return this.apollo.mutate({
+      mutation:addTeamMember,
+      variables:{
+        id,
+        teammember
+      }
+    })
+  };
+
+  createUser(email, password, firstName, lastName, title, isMU, agency) {
     return this.apollo.mutate({
       mutation: createUser,
       variables: {
@@ -79,12 +108,11 @@ export class AccManagementService {
         firstName,
         lastName,
         title,
-        isMU
+        isMU,
+        agency
       }
     })
   };
-
-
 
   deleteUser(id){
     return this.apollo.mutate({

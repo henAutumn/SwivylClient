@@ -25,7 +25,6 @@ const APP_CONTAINERS = [
 
 // Import components
 import {
-  AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
   AppSidebarFooterComponent,
@@ -36,7 +35,6 @@ import {
 } from './components';
 
 const APP_COMPONENTS = [
-  AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
   AppSidebarFooterComponent,
@@ -71,6 +69,7 @@ import { PolicyCornerComponent } from './views/policy-corner/policy-corner.compo
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
+import { AgencyService } from './Services/agency.service';
 
 
 @NgModule({
@@ -103,7 +102,7 @@ import { AuthGaurd } from './guards/auth.guard';
       useClass: HashLocationStrategy
     },
 
-
+    AgencyService,
     LoginService,
     UploadImageService,
     AuthGaurd
