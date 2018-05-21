@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { HttpClient } from '@angular/common/http';
 import { UploadImageService } from '../../Services/upload-image.service';
-// import { AgencyService } from '../../Services/agency.service';
+import { AgencyService } from '../../Services/agency.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AppSidebarHeaderComponent {
   firstName:string
   lastName:string
   agencyCount=0
-  constructor(private apollo: Apollo, private _uploadimageservice: UploadImageService){}
+  constructor(private apollo: Apollo, private _uploadimageservice: UploadImageService, private _agencyservice : AgencyService){}
 
   ngOnInit(){
   }
@@ -33,14 +33,14 @@ export class AppSidebarHeaderComponent {
     input.click()
   }
 
-  // getAgency=()=>{
-  //   this._agencyservice.getAgency().subscribe(
-  //     (res:any) => {
-  //       console.log(res);
+  getAgency=()=>{
+    this._agencyservice.getAgency().subscribe(
+      (res:any) => {
+        console.log(res);
         
-  //     }
-  //   )
-  // }
+      }
+    )
+  }
 
   // onUpload() {
   //   const fd = new FormData();

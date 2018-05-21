@@ -9,6 +9,7 @@ const login = gql`
       firstName
       id
       isMU
+      agency
     }
     token
   }

@@ -54,6 +54,15 @@
     font-size: 15px;
 }
 
+#agency { position: relative; }
+#agency input { text-indent: 25px;}
+#agency .fa-envelope { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+}
+
   .form-control {
     border-radius: 20px;
   }
@@ -144,3 +153,4 @@
     }
   }
 }
+

@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       localStorage.setItem('token', res.data.login.token);
       localStorage.setItem('isMU', res.data.login.user.isMU);
+      localStorage.setItem('agency', res.data.login.user.agency);
       if(localStorage.token){
         this.router.navigate(['/dashboard'])
       } else {

@@ -51,7 +51,7 @@ tbody{
     border-radius: 10px;
 }
 
-#email, #password, #firstName, #lastName {
+#email, #password, #firstName, #lastName, {
     width: 33.5em; 
     margin: 0 auto;
 }
@@ -88,6 +88,27 @@ tbody{
     font-weight: bold;
     font-size: 25px;
 }
+
 #addAgency{
     z-index: 1400;
+}
+
+#name { position: relative; }
+#name input { text-indent: 25px;}
+#name .fa-building { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+    z-index: 2000;
+}
+
+#img { position: relative; }
+#img input { text-indent: 25px;}
+#img .fa-file-image { 
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 15px;
+    z-index: 2000;
 }

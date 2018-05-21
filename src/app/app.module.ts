@@ -12,6 +12,7 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { LoginService } from './Services/login.service'
 import { UploadImageService } from './Services/upload-image.service';
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -25,7 +26,6 @@ const APP_CONTAINERS = [
 
 // Import components
 import {
-  AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
   AppSidebarFooterComponent,
@@ -36,7 +36,6 @@ import {
 } from './components';
 
 const APP_COMPONENTS = [
-  AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
   AppSidebarFooterComponent,
@@ -71,7 +70,7 @@ import { PolicyCornerComponent } from './views/policy-corner/policy-corner.compo
 import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
-
+import { AgencyService } from './Services/agency.service';
 
 @NgModule({
   imports: [
@@ -85,7 +84,8 @@ import { AuthGaurd } from './guards/auth.guard';
     HttpModule,
     //Apollo Modules
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    
   ],
   declarations: [
     AppComponent,
@@ -96,6 +96,7 @@ import { AuthGaurd } from './guards/auth.guard';
     ContactComponent,
     LoginComponent,
     
+    
   ],
   providers: [
     {
@@ -103,7 +104,7 @@ import { AuthGaurd } from './guards/auth.guard';
       useClass: HashLocationStrategy
     },
 
-
+    AgencyService,
     LoginService,
     UploadImageService,
     AuthGaurd
