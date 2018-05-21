@@ -60,17 +60,22 @@ export class TeamTableComponent implements OnInit {
   }
 
     newUser(e) {
-      let createdUser = {
-        email: e.target[0].value,
-        password: e.target[1].value,
-        firstName: e.target[2].value,
-        lastName: e.target[3].value,
-        title: e.target[4].value
-      }
-      this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title).subscribe(
-        (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
-      },
+      if (localStorage.getItem("isMu") == "true"){
+        let createdUser = {
+          email: e.target[0].value,
+          password: e.target[1].value,
+          firstName: e.target[2].value,
+          lastName: e.target[3].value,
+          title: e.target[4].value,
+          isMU:false
+        }
+        this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title, createdUser.isMU).subscribe(
+          (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
+        },
         (error: any) => { alert(`There is already an account associated with that email address`) })
+      } else{
+        alert('You are not authorized to add new user')
+      }
     }
 
     sortTable(n){

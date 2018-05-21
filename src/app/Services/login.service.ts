@@ -8,6 +8,7 @@ const login = gql`
     user {
       firstName
       id
+      isMU
     }
     token
   }
