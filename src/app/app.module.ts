@@ -32,7 +32,8 @@ import {
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   APP_SIDEBAR_NAV,
-  
+  AppFooterComponent,
+
 } from './components';
 
 const APP_COMPONENTS = [
@@ -71,6 +72,9 @@ import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
 import { AgencyService } from './Services/agency.service';
+import { AppBreadcrumbsComponent } from './components/app-breadcrumbs';
+import { DashboardSnapshotComponent } from './views/dashboard/dashboard-snapshot.component';
+import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.component';
 
 @NgModule({
   imports: [
@@ -95,6 +99,10 @@ import { AgencyService } from './Services/agency.service';
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
+    AppFooterComponent,
+    AppBreadcrumbsComponent,
+    DashboardSnapshotComponent,
+    DashboardToDoComponent
 
   ],
   providers: [
