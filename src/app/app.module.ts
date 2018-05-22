@@ -31,7 +31,8 @@ import {
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+  AppFooterComponent
 
 } from './components';
 
@@ -85,6 +86,7 @@ import { AgencyService } from './Services/agency.service';
     //Apollo Modules
     ApolloModule,
     HttpLinkModule,
+    AppFooterComponent
     
   ],
   declarations: [
