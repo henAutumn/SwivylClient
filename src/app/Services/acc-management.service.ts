@@ -3,7 +3,7 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const createUser = gql`
-  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!, $isMU:Boolean, $agency:String) {
+  mutation createUser($email: String!, $password: String!, $firstName:String!, $lastName:String!, $title:String!, $isMU:Boolean, $agency:String!) {
     createUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName, title: $title, isMU:$isMU, agency:$agency) {
     user {
       firstName

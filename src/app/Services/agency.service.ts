@@ -5,8 +5,8 @@ import gql from 'graphql-tag';
 
 
 const createAgency = gql`
-  mutation createAgency($masteruser:String!, $name:String!, $img:String!){
-    createAgency(masteruser:$masteruser, name:$name, img:$img){
+  mutation createAgency( $name:String!, $img:String!){
+    createAgency(name:$name, img:$img){
       name
       img
       id  
@@ -15,8 +15,8 @@ const createAgency = gql`
 `; 
 
 const updateAgency = gql`
-  mutation updateAgency($id:ID!, $masteruser:String! $name:String, $img:String!){
-    updateAgency(id:$id, masteruser:$masteruser, name:$name, img:$img){
+  mutation updateAgency($id:ID!, $name:String, $img:String!){
+    updateAgency(id:$id, name:$name, img:$img){
       name
       img
       id
@@ -25,8 +25,8 @@ const updateAgency = gql`
 `;
 
 const deleteAgency= gql`
-  mutation deleteAgency($id:ID!, $masteruser:String!){
-    deleteAgency(id:$id, masteruser:$masteruser){
+  mutation deleteAgency($id:ID!){
+    deleteAgency(id:$id, ){
       name
     }
   }
@@ -48,35 +48,32 @@ export class AgencyService {
 
   constructor(private apollo:Apollo) { }
 
-  createAgency(masteruser, name, img){
+  createAgency( name, img){
     return this.apollo.mutate({
       mutation:createAgency,
       variables:{
-        masteruser,
         name,
         img
       }
     })
   };
 
-  updateAgency(id, masteruser, name, img){
+  updateAgency(id, name, img){
     return this.apollo.mutate({
       mutation:updateAgency,
       variables:{
         name,
         img, 
-        masteruser,
         id
       }
     })
   };
 
-  deleteUser(id, masteruser){
+  deleteUser(id){
     return this.apollo.mutate({
       mutation:deleteAgency,
       variables:{
-        id,
-        masteruser
+        id
       }
     })
   };

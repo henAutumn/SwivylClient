@@ -43,7 +43,6 @@ export class AccManagementComponent implements OnInit {
       }
       this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title, createdUser.isMU, createdUser.agency).subscribe(
         (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), 
-        this.getAllUsers();
         this.addMember(res)  
       },
       (error:any)=>{ alert(`There is already an account associated with that email address`)})
@@ -55,26 +54,28 @@ export class AccManagementComponent implements OnInit {
   addMember(res){
     let addedMember = {
       agency:localStorage.getItem("agency"),
-      id:res.data.createdUser.user.id
+      id:res.data.createUser.user.id
     }
     this._accmanagementservice.addTeamMember(addedMember.agency, addedMember.id).subscribe(
-      (res:any) =>{console.log(res)}
+      (res:any) =>{
+        this.getAllUsers();
+      }    
     )
   }
-
  updateAgency(e){
-    if (localStorage.getItem("isMu") == "true"){
-      let createdAgency = {
-        masteruser: "cjhala570qfo20b62x0sar5fr",// masteruser
+   let id = localStorage.getItem("agency");
+    if (localStorage.getItem("isMU") == "true"){
+      let updatedAgency = {
+        id:id,
         name: e.target[0].value,
         img: e.target[1].value
       }
-      this._agencyservice.createAgency(createdAgency.masteruser, createdAgency.name, createdAgency.img).subscribe(
+      this._agencyservice.updateAgency(updatedAgency.id,updatedAgency.name, updatedAgency.img).subscribe(
         (res:any) => {alert('You have succesfully created an Agency')},
         (error:any) => {alert('There was an error')}
       )
     }else{
-      alert("You are not authorized to add a new Agency.")
+      alert("You are not authorized to update Agency.")
     }
   }
 

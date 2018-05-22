@@ -25,12 +25,25 @@ export class TeamTableComponent implements OnInit {
       })
   }
 
+  addMember(result){
+    let addedMember = {
+      agency:localStorage.getItem("agency"),
+      id:result.data.createUser.user.id
+    }
+    this._accmanagementservice.addTeamMember(addedMember.agency, addedMember.id).subscribe(
+      (res:any) =>{
+        this.getAllUsers();
+      }    
+    )
+  }
+
+
   onUpdate(user) {
     this.updatedUser = user
   }
 
   updateTrigger(e) {
-    if (localStorage.getItem("isMu") == "true"){
+    if (localStorage.getItem("isMU") == "true"){
       let updatedUser = {
         id: e.target[0].value,
         email: e.target[1].value,
@@ -49,7 +62,7 @@ export class TeamTableComponent implements OnInit {
   }
 
   deleteTrigger(id) {
-    if (localStorage.getItem("isMu") == "true"){
+    if (localStorage.getItem("isMU") == "true"){
       this.deletedUser = id
       if (confirm("Are you sure you want to delete this user?")) {
         this._accmanagementservice.deleteUser(id).subscribe(
@@ -69,7 +82,7 @@ export class TeamTableComponent implements OnInit {
 
     newUser(e) {
       let agency =  localStorage.getItem("agency");
-      if (localStorage.getItem("isMu") == "true"){
+      if (localStorage.getItem("isMU") == "true"){
         let createdUser = {
           email: e.target[0].value,
           password: e.target[1].value,
@@ -79,10 +92,13 @@ export class TeamTableComponent implements OnInit {
           isMU:false,
           agency:agency
         }
-        this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title, createdUser.isMU, createdUser.agency).subscribe(
-          (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `), this.getAllUsers()
+        this._accmanagementservice.createUser(createdUser.email, createdUser.password, createdUser.firstName, createdUser.lastName, createdUser.title , createdUser.isMU, createdUser.agency).subscribe(
+          (res: any) => { alert(`You have succesfully created ${res.data.createUser.user.firstName}'s account! `);
+          this.addMember(res);
         },
-        (error: any) => { alert(`There is already an account associated with that email address`) })
+        (error: any) => {
+          alert(`There is already an account associated with that email address`) 
+        })
       } else{
         alert('You are not authorized to add new user')
       }
