@@ -23,7 +23,7 @@
     <div class="card-footer to-do-footer dashboard-footer">
             <a style="color:#a5c856; text-align: left; width:49%; display: inline-block; cursor: pointer;" (click)="open(viewall)" *ngIf="tasks.length >= 1">View all items</a>
        
-            <a style="color:#a5c856; text-align: right; width:50%;  display: inline-block; cursor: pointer;"(click)="open(createTask)">+Add Task</a>
+            <a style="color:#a5c856; text-align: right; width:50%;  display: inline-block; cursor: pointer;">+Add Task</a>
     </div>
   
     <ng-template #createTask let-c="close" let-d="dismiss">
