@@ -32,7 +32,6 @@ import {
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   APP_SIDEBAR_NAV,
-  AppFooterComponent,
 
 } from './components';
 
@@ -99,7 +98,6 @@ import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.compon
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
-    AppFooterComponent,
     AppBreadcrumbsComponent,
     DashboardSnapshotComponent,
     DashboardToDoComponent
