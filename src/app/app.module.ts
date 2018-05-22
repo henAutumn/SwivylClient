@@ -31,7 +31,7 @@ import {
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
 
 } from './components';
 
@@ -71,6 +71,9 @@ import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
 import { AgencyService } from './Services/agency.service';
+// import { AppBreadcrumbsComponent } from './components/app-breadcrumbs';
+// import { DashboardSnapshotComponent } from './views/dashboard/dashboard-snapshot.component';
+// import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.component';
 
 @NgModule({
   imports: [
@@ -95,8 +98,10 @@ import { AgencyService } from './Services/agency.service';
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
-    
-    
+    // AppBreadcrumbsComponent,
+    // DashboardSnapshotComponent,
+    // DashboardToDoComponent
+
   ],
   providers: [
     {
@@ -129,7 +134,7 @@ export class AppModule {
     });
 
     const httpsLink = createHttpLink({
-      uri: 'http://localhost:4000',
+      uri: 'https://src-qvjlzmblpg.now.sh/',
     });
 
     apollo.create({

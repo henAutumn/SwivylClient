@@ -16,13 +16,12 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
       </div>
     </div>
     <div class="card-footer dashboard-footer">
-    <a style="color:#a5c856; text-align: left; width:49%; display: inline-block; cursor: pointer;" (click)="open(viewall)">View All Activity</a>
         </div>
   </div>
   <ng-template #viewall let-c="close" let-d="dismiss">
       <div class="modal-header">
         <h4 class="modal-title">Activity Timeline</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <button type="button" class="close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
