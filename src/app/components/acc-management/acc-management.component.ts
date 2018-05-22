@@ -62,22 +62,22 @@ export class AccManagementComponent implements OnInit {
       }    
     )
   }
- updateAgency(e){
-   let id = localStorage.getItem("agency");
-    if (localStorage.getItem("isMU") == "true"){
-      let updatedAgency = {
-        id:id,
-        name: e.target[0].value,
-        img: e.target[1].value
-      }
-      this._agencyservice.updateAgency(updatedAgency.id,updatedAgency.name, updatedAgency.img).subscribe(
-        (res:any) => {alert('You have succesfully created an Agency')},
-        (error:any) => {alert('There was an error')}
-      )
-    }else{
-      alert("You are not authorized to update Agency.")
-    }
-  }
+//  updateAgency(e){
+//    let id = localStorage.getItem("agency");
+//     if (localStorage.getItem("isMU") == "true"){
+//       let updatedAgency = {
+//         id:id,
+//         name: e.target[0].value,
+//         img: e.target[1].value
+//       }
+//       this._agencyservice.updateAgency(updatedAgency.id,updatedAgency.name, updatedAgency.img).subscribe(
+//         (res:any) => {alert('You have succesfully created an Agency')},
+//         (error:any) => {alert('There was an error')}
+//       )
+//     }else{
+//       alert("You are not authorized to update Agency.")
+//     }
+//   }
 
  
 }
