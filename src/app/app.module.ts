@@ -71,9 +71,9 @@ import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGaurd } from './guards/auth.guard';
 import { AgencyService } from './Services/agency.service';
-import { AppBreadcrumbsComponent } from './components/app-breadcrumbs';
-import { DashboardSnapshotComponent } from './views/dashboard/dashboard-snapshot.component';
-import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.component';
+// import { AppBreadcrumbsComponent } from './components/app-breadcrumbs';
+// import { DashboardSnapshotComponent } from './views/dashboard/dashboard-snapshot.component';
+// import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.component';
 
 @NgModule({
   imports: [
@@ -98,9 +98,9 @@ import { DashboardToDoComponent } from './views/dashboard/dashboard-to-do.compon
     PolicyCornerComponent,
     ContactComponent,
     LoginComponent,
-    AppBreadcrumbsComponent,
-    DashboardSnapshotComponent,
-    DashboardToDoComponent
+    // AppBreadcrumbsComponent,
+    // DashboardSnapshotComponent,
+    // DashboardToDoComponent
 
   ],
   providers: [

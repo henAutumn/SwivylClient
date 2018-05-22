@@ -18,6 +18,7 @@ const getUsers = gql`
   query agency($id:ID!){
     agency(id:$id){
       teammembers{
+        email
         id
         firstName
         lastName
