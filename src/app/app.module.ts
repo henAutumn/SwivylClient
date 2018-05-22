@@ -134,7 +134,7 @@ export class AppModule {
     });
 
     const httpsLink = createHttpLink({
-      uri: 'https://src-qvjlzmblpg.now.sh/',
+      uri: 'https://my-app-ycmfsidgqm.now.sh/',
     });
 
     apollo.create({
