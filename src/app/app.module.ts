@@ -134,7 +134,7 @@ export class AppModule {
     });
 
     const httpsLink = createHttpLink({
-      uri: 'http://localhost:4000',
+      uri: 'https://src-qvjlzmblpg.now.sh/',
     });
 
     apollo.create({
