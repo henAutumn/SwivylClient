@@ -1,5 +1,5 @@
   <div class="risk container">
-      <form (submit)="PostCompanyRisks($event)">
+      <form>
         <div class="row justify-content-center">
           <h4>WHAT ARE YOUR CURRENT ASSETS?</h4>
         </div>
@@ -157,7 +157,7 @@
           <label>Company / Entity</label>
         </div>
         <div class="col-2">
-          <select required name="entitySelect" (change)="pullCompanyEntities($event)" id="" placeholder="Select Company">
+          <select required name="entitySelect" id="" placeholder="Select Company">
             <option value="" disabled selected>Select a company</option>
             <option *ngFor="let company of companies" value={{company.id}} >
               {{company.name}}   
